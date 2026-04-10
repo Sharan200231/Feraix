@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Feraix - Smart Digital Solutions",
+  title: "Feraix",
   description: "Next-gen technology solutions for web, mobile, and cloud.",
 };
 

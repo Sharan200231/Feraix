@@ -42,14 +42,14 @@ export default function NewsSection() {
 
   return (
     <section className="py-20 bg-background">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Filters */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-20">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-12 sm:mb-20">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-8 py-3 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 border ${
+              className={`px-5 sm:px-8 py-2 sm:py-3 rounded-full text-[10px] sm:text-xs font-semibold tracking-wider transition-all duration-300 border ${
                 activeCategory === category
                   ? "bg-primary border-primary text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]"
                   : "bg-white/5 border-white/10 text-gray-400 hover:border-white/20 hover:text-white"
@@ -61,10 +61,10 @@ export default function NewsSection() {
         </div>
 
         {/* Featured Post */}
-        <div className="mb-32">
-          <div className="group relative bg-[#0B0F1A] border border-white/5 rounded-[40px] overflow-hidden hover:border-primary/20 transition-all duration-500 max-w-6xl mx-auto flex flex-col lg:flex-row">
+        <div className="mb-16 sm:mb-32">
+          <div className="group relative bg-[#0B0F1A] border border-white/5 rounded-[24px] sm:rounded-[40px] overflow-hidden hover:border-primary/20 transition-all duration-500 max-w-6xl mx-auto flex flex-col lg:flex-row">
             {/* Image Area */}
-            <div className="relative lg:w-1/2 h-[400px] lg:h-auto overflow-hidden">
+            <div className="relative lg:w-1/2 h-[250px] sm:h-[400px] lg:h-auto overflow-hidden">
               <Image
                 src="/assets/AI Technology.png"
                 alt="Featured Post"
@@ -75,7 +75,7 @@ export default function NewsSection() {
             </div>
 
             {/* Content Area */}
-            <div className="lg:w-1/2 p-8 lg:p-16 flex flex-col justify-center">
+            <div className="lg:w-1/2 p-6 sm:p-8 lg:p-16 flex flex-col justify-center">
               <div className="flex items-center gap-4 mb-6">
                 <span className="px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-bold text-primary tracking-widest uppercase">
                   AI & Innovation
@@ -86,10 +86,10 @@ export default function NewsSection() {
                 </div>
               </div>
 
-              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 group-hover:text-primary transition-colors leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6 group-hover:text-primary transition-colors leading-tight">
                 The Future of Enterprise AI: Transforming Business Operations in 2026
               </h2>
-              <p className="text-gray-400 text-base leading-relaxed mb-10 max-w-md">
+              <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6 sm:mb-10 max-w-md">
                 Discover how artificial intelligence is moving beyond generative text to fully autonomous business operations, predictive analytics, and dynamic resource allocation.
               </p>
 
@@ -121,9 +121,9 @@ export default function NewsSection() {
         </div>
 
         {/* Latest Articles */}
-        <div className="mb-32">
-          <div className="flex items-center justify-between mb-12">
-            <h2 className="text-3xl font-bold text-white tracking-tight">Latest Articles</h2>
+        <div className="mb-16 sm:mb-32">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 sm:mb-12 gap-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Latest Articles</h2>
             <Link href="#" className="text-gray-500 hover:text-white text-sm flex items-center gap-2 group">
               View all posts
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -169,7 +169,7 @@ export default function NewsSection() {
         </div>
 
         {/* Newsletter Section */}
-        <div className="max-w-4xl mx-auto py-20 px-8 rounded-[40px] bg-gradient-to-b from-primary/5 to-transparent border border-white/5 text-center relative overflow-hidden">
+        <div className="max-w-4xl mx-auto py-12 sm:py-20 px-6 sm:px-8 rounded-[24px] sm:rounded-[40px] bg-gradient-to-b from-primary/5 to-transparent border border-white/5 text-center relative overflow-hidden">
           {/* Decorative Glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
           
@@ -177,8 +177,8 @@ export default function NewsSection() {
             <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-8 border border-primary/20">
               <Mail className="w-8 h-8 text-primary" />
             </div>
-            <h2 className="text-4xl font-bold text-white mb-6">Stay Updated With Feraix</h2>
-            <p className="text-gray-400 text-lg mb-12 max-w-xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">Stay Updated With Feraix</h2>
+            <p className="text-gray-400 text-base sm:text-lg mb-8 sm:mb-12 max-w-xl mx-auto">
               Join our newsletter to receive the latest technology insights, industry trends, and company updates directly in your inbox.
             </p>
             

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function AboutCTA() {
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section className="relative py-16 sm:py-32 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -15,15 +15,15 @@ export default function AboutCTA() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-[#020617]"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 text-center">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8">
           Ready to Transform Your Business?
         </h2>
-        <p className="text-gray-300 text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-gray-300 text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed">
           Join hands with Feraix to build scalable, secure, and futuristic digital solutions.
         </p>
         
-        <button className="px-10 py-5 bg-primary text-white font-bold rounded-full hover:bg-primary/90 hover:scale-105 transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)]">
+        <button className="px-8 sm:px-10 py-4 sm:py-5 bg-primary text-white font-bold rounded-full hover:bg-primary/90 hover:scale-105 transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] text-sm sm:text-base">
           Start Your Digital Journey →
         </button>
       </div>

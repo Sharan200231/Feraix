@@ -3,14 +3,14 @@ import { CheckCircle2 } from "lucide-react";
 
 export default function InnovationSection() {
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-background relative overflow-hidden">
       {/* Background patterns */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10"></div>
       
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-20">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex flex-col lg:flex-row items-center gap-10 sm:gap-16 lg:gap-20">
           <div className="lg:w-1/2 relative">
-            <div className="relative z-10 rounded-[40px] overflow-hidden border border-white/5 shadow-2xl">
+            <div className="relative z-10 rounded-[24px] sm:rounded-[40px] overflow-hidden border border-white/5 shadow-2xl">
               <Image
                 src="/assets/Innovation.png"
                 alt="Innovation"
@@ -26,8 +26,8 @@ export default function InnovationSection() {
 
           <div className="lg:w-1/2">
             <p className="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-6">Innovation at Core</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">Driving Digital Transformation</h2>
-            <p className="text-gray-400 text-lg leading-relaxed mb-10">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8 leading-tight">Driving Digital Transformation</h2>
+            <p className="text-gray-400 text-base sm:text-lg leading-relaxed mb-8 sm:mb-10">
               We leverage cutting-edge technologies including advanced AI systems, robust digital platforms, and scalable cloud infrastructure to build solutions that are not just for today, but ready for tomorrow.
             </p>
 

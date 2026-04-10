@@ -25,7 +25,7 @@ const team = [
 
 export default function TeamSection() {
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-16 sm:py-32 relative overflow-hidden">
       {/* Background Image Design */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -37,18 +37,18 @@ export default function TeamSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20 max-w-3xl mx-auto">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-12 sm:mb-20 max-w-3xl mx-auto">
           <p className="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-4">Our Team</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Global Collaborative Excellence</h2>
-          <p className="text-gray-400 text-lg leading-relaxed">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8">Global Collaborative Excellence</h2>
+          <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
             Our success is driven by a diverse team of international professionals bringing unique perspectives and world-class expertise to every project.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {team.map((member, index) => (
-            <div key={index} className="group p-8 rounded-3xl bg-[#0B0F1A]/80 backdrop-blur-md border border-white/5 hover:border-primary/30 hover:bg-[#0B0F1A] transition-all duration-500">
+            <div key={index} className="group p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#0B0F1A]/80 backdrop-blur-md border border-white/5 hover:border-primary/30 hover:bg-[#0B0F1A] transition-all duration-500">
               <div className="relative w-24 h-24 mx-auto mb-6">
                  {/* Decorative Ring */}
                  <div className="absolute inset-0 rounded-full border-2 border-primary/20 group-hover:border-primary/50 group-hover:scale-110 transition-all duration-500"></div>

@@ -1,20 +1,22 @@
 import { MapPin, Mail, Phone } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-background border-t border-white/5 pt-20 pb-10">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+    <footer className="bg-background border-t border-white/5 pt-12 sm:pt-20 pb-8 sm:pb-10">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-10 sm:mb-16">
           {/* Company Info */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-background font-bold text-xl italic leading-none">F</span>
-              </div>
-              <span className="text-2xl font-bold tracking-tight text-white uppercase">
-                Feraix
-              </span>
+            <Link href="/" className="flex items-center">
+              <Image 
+                src="/assets/logo.jpeg" 
+                alt="Feraix Logo" 
+                width={150} 
+                height={50} 
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="text-gray-500 leading-relaxed text-sm">
               Empowering businesses through cutting-edge technology and intelligent digital solutions. We transform visions into reality with precision and expertise.
@@ -98,11 +100,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="pt-8 sm:pt-10 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6">
           <p className="text-gray-600 text-xs">
             © 2026 Feraix Technologies. All rights reserved.
           </p>
-          <div className="flex gap-8">
+          <div className="flex gap-6 sm:gap-8">
             <Link href="#" className="text-gray-600 hover:text-white transition-colors text-xs">Privacy Policy</Link>
             <Link href="#" className="text-gray-600 hover:text-white transition-colors text-xs">Terms of Service</Link>
           </div>

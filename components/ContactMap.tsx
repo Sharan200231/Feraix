@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function ContactMap() {
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="relative w-full h-[500px] rounded-[40px] overflow-hidden border border-white/5">
+    <section className="py-12 sm:py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="relative w-full h-[300px] sm:h-[500px] rounded-[24px] sm:rounded-[40px] overflow-hidden border border-white/5">
           {/* Stylized Map Placeholder */}
           <div className="absolute inset-0 bg-[#0B0A0F] z-0 overflow-hidden">
              {/* Creating a map-like grid pattern */}

@@ -5,14 +5,14 @@ import Link from "next/link";
 
 export default function ContactFormSection() {
   return (
-    <section className="py-24 bg-background selection:bg-primary selection:text-white">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+    <section className="py-12 sm:py-24 bg-background selection:bg-primary selection:text-white">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-16">
           
           {/* Contact Information */}
           <div className="lg:col-span-5 space-y-12">
-            <div className="p-10 rounded-[40px] bg-[#0B0F1A] border border-white/5 space-y-10 h-full">
-              <h2 className="text-3xl font-bold text-white mb-10">Contact Information</h2>
+            <div className="p-6 sm:p-10 rounded-[24px] sm:rounded-[40px] bg-[#0B0F1A] border border-white/5 space-y-8 sm:space-y-10 h-full">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-10">Contact Information</h2>
               
               <div className="space-y-8">
                 <div className="flex gap-6">
@@ -100,8 +100,8 @@ export default function ContactFormSection() {
 
           {/* Contact Form */}
           <div className="lg:col-span-7">
-            <div className="p-10 lg:p-12 rounded-[40px] bg-[#0B0F1A] border border-white/5">
-              <h2 className="text-3xl font-bold text-white mb-2">Send a Message</h2>
+            <div className="p-6 sm:p-10 lg:p-12 rounded-[24px] sm:rounded-[40px] bg-[#0B0F1A] border border-white/5">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Send a Message</h2>
               <p className="text-gray-500 text-sm mb-10">Fill out the form below and our team will get back to you within 24 hours.</p>
               
               <form className="space-y-6">

@@ -1,3 +1,8 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/constants/animations";
+
 const services = [
   {
     title: "Web Development",
@@ -45,18 +50,35 @@ export default function Services() {
   return (
     <section id="services" className="py-12 bg-background relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
+        <motion.div 
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={staggerContainer}
+          className="text-center mb-16"
+        >
+          <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-black text-white mb-4">
             How We Can Help Your Business Grow
-          </h2>
-          <div className="w-24 h-1.5 bg-primary mx-auto rounded-full" />
-        </div>
+          </motion.h2>
+          <motion.div variants={fadeInUp} className="w-24 h-1.5 bg-primary mx-auto rounded-full" />
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.div 
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group p-8 rounded-3xl bg-[#0a0a0c] border border-white/10 hover:border-primary/40 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden flex flex-col items-center text-center h-full"
+              variants={fadeInUp}
+              whileHover={{ 
+                y: -10,
+                transition: { duration: 0.3 }
+              }}
+              className="group p-8 rounded-3xl bg-[#0a0a0c] border border-white/10 hover:border-primary/40 transition-colors duration-500 relative overflow-hidden flex flex-col items-center text-center h-full"
             >
               {/* Top and Bottom Light Effects */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -65,11 +87,14 @@ export default function Services() {
               <div className="relative mb-8">
                 {/* Icon Glow */}
                 <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative w-20 h-20 rounded-full border-2 border-primary/30 flex items-center justify-center bg-background shadow-[0_0_20px_rgba(251,221,8,0.1)] group-hover:border-primary group-hover:shadow-[0_0_30px_rgba(251,221,8,0.3)] transition-all duration-500">
+                <motion.div 
+                  whileHover={{ scale: 1.1 }}
+                  className="relative w-20 h-20 rounded-full border-2 border-primary/30 flex items-center justify-center bg-background shadow-[0_0_20px_rgba(251,221,8,0.1)] group-hover:border-primary group-hover:shadow-[0_0_30px_rgba(251,221,8,0.3)] transition-all duration-500"
+                >
                   <div className="text-primary scale-110">
                     {service.icon}
                   </div>
-                </div>
+                </motion.div>
               </div>
               
               <h3 className="text-xl font-bold text-white mb-4 group-hover:text-primary/90 transition-colors">
@@ -80,13 +105,16 @@ export default function Services() {
                 {service.description}
               </p>
               
-              <button className="flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all uppercase tracking-widest pt-4 mt-auto">
+              <motion.button 
+                whileHover={{ gap: "12px" }}
+                className="flex items-center gap-2 text-primary font-bold text-sm transition-all uppercase tracking-widest pt-4 mt-auto"
+              >
                 Learn More
                 <span className="text-xl">›</span>
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,12 +1,22 @@
+"use client";
+
 import { MapPin, Mail, Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer, fadeIn } from "@/constants/animations";
 
 export default function Footer() {
   return (
     <footer className="relative border-t border-white/5 pt-12 sm:pt-20 pb-8 sm:pb-10 overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <motion.div 
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        variants={fadeIn}
+        className="absolute inset-0 z-0"
+      >
         <Image
           src="/assets/footer-bg.png"
           alt="Footer Background"
@@ -14,12 +24,18 @@ export default function Footer() {
           className="object-cover opacity-20"
           priority
         />
-      </div>
+      </motion.div>
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-10 sm:mb-16">
+        <motion.div 
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={staggerContainer}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-10 sm:mb-16"
+        >
           {/* Company Info */}
-          <div className="space-y-6">
+          <motion.div variants={fadeInUp} className="space-y-6">
             <Link href="/" className="flex items-center">
               <Image 
                 src="/assets/logo.jpeg" 
@@ -29,7 +45,7 @@ export default function Footer() {
                 className="h-12 w-auto"
               />
             </Link>
-            <p className="text-gray-500 leading-relaxed text-sm">
+            <p className="text-white leading-relaxed text-sm">
               Empowering businesses through cutting-edge technology and intelligent digital solutions. We transform visions into reality with precision and expertise.
             </p>
             <div className="flex items-center gap-4">
@@ -61,61 +77,67 @@ export default function Footer() {
                 </svg>
               </Link>
             </div>
-          </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div>
+          <motion.div variants={fadeInUp}>
             <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-sm">Quick Links</h4>
             <ul className="space-y-4">
               {["Home", "About Us", "Our Projects", "Careers", "Contact"].map((item) => (
                 <li key={item}>
-                  <Link href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">
+                  <Link href="#" className="text-white hover:text-primary transition-colors text-sm">
                     {item}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Services */}
-          <div>
+          <motion.div variants={fadeInUp}>
             <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-sm">Services</h4>
             <ul className="space-y-4">
               {["Web Development", "Software Development", "IT Consulting", "Cloud Solutions"].map((item) => (
                 <li key={item}>
-                  <Link href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">
+                  <Link href="#" className="text-white hover:text-primary transition-colors text-sm">
                     {item}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact */}
-          <div>
+          <motion.div variants={fadeInUp}>
             <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-sm">Contact</h4>
             <ul className="space-y-4">
               <li className="flex gap-4 text-sm">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
-                <span className="text-gray-500">2703, Damac Park tower B, Dubai, UAE</span>
+                <span className="text-white">2703, Damac Park tower B, Dubai, UAE</span>
               </li>
               <li className="flex gap-4 text-sm">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
-                <span className="text-gray-500">No. 44, Varveset Place, Wellawatte, Colombo 06, Sri Lanka</span>
+                <span className="text-white">No. 44, Varveset Place, Wellawatte, Colombo 06, Sri Lanka</span>
               </li>
               <li className="flex gap-4 text-sm">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <span className="text-gray-500">contact@feraix.tech</span>
+                <span className="text-white">contact@feraix.tech</span>
               </li>
               <li className="flex gap-4 text-sm">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <span className="text-gray-500">+1 (555) 123-4567</span>
+                <span className="text-white">+1 (555) 123-4567</span>
               </li>
             </ul>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="pt-8 sm:pt-10 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="pt-8 sm:pt-10 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6"
+        >
           <p className="text-gray-600 text-xs">
             © 2026 Feraix Technologies. All rights reserved.
           </p>
@@ -123,7 +145,7 @@ export default function Footer() {
             <Link href="#" className="text-gray-600 hover:text-white transition-colors text-xs">Privacy Policy</Link>
             <Link href="#" className="text-gray-600 hover:text-white transition-colors text-xs">Terms of Service</Link>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

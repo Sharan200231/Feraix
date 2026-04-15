@@ -41,7 +41,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center group">
             <Image 
-              src="/assets/logo.jpeg" 
+              src="/assets/TransLogo.png" 
               alt="Feraix Logo" 
               width={120} 
               height={40} 

@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Clock, Mail } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer, fadeIn } from "@/constants/animations";
 
 const categories = [
   "All",
@@ -41,13 +43,22 @@ export default function NewsSection() {
   const [activeCategory, setActiveCategory] = useState("All");
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-background overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Filters */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-12 sm:mb-20">
+        <motion.div 
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-12 sm:mb-20"
+        >
           {categories.map((category) => (
-            <button
+            <motion.button
               key={category}
+              variants={fadeInUp}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(category)}
               className={`px-5 sm:px-8 py-2 sm:py-3 rounded-full text-[10px] sm:text-xs font-semibold tracking-wider transition-all duration-300 border ${
                 activeCategory === category
@@ -56,13 +67,22 @@ export default function NewsSection() {
               }`}
             >
               {category.toUpperCase()}
-            </button>
+            </motion.button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Featured Post */}
-        <div className="mb-16 sm:mb-32">
-          <div className="group relative bg-[#0B0F1A] border border-white/5 rounded-[24px] sm:rounded-[40px] overflow-hidden hover:border-primary/20 transition-all duration-500 max-w-6xl mx-auto flex flex-col lg:flex-row">
+        <motion.div 
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeInUp}
+          className="mb-16 sm:mb-32"
+        >
+          <motion.div 
+            whileHover={{ y: -5 }}
+            className="group relative bg-[#0B0F1A] border border-white/5 rounded-[24px] sm:rounded-[40px] overflow-hidden hover:border-primary/20 transition-all duration-500 max-w-6xl mx-auto flex flex-col lg:flex-row"
+          >
             {/* Image Area */}
             <div className="relative lg:w-1/2 h-[250px] sm:h-[400px] lg:h-auto overflow-hidden">
               <Image
@@ -117,23 +137,36 @@ export default function NewsSection() {
                 </Link>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Latest Articles */}
         <div className="mb-16 sm:mb-32">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 sm:mb-12 gap-4">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 sm:mb-12 gap-4"
+          >
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Latest Articles</h2>
             <Link href="#" className="text-gray-500 hover:text-white text-sm flex items-center gap-2 group">
               View all posts
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div 
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
             {articles.map((article, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={fadeInUp}
+                whileHover={{ y: -10 }}
                 className="group cursor-pointer"
               >
                 <div className="relative h-64 w-full rounded-2xl overflow-hidden mb-6 border border-white/5">
@@ -163,40 +196,50 @@ export default function NewsSection() {
                   Read More
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </Link>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Newsletter Section */}
-        <div className="max-w-4xl mx-auto py-12 sm:py-20 px-6 sm:px-8 rounded-[24px] sm:rounded-[40px] bg-gradient-to-b from-primary/5 to-transparent border border-white/5 text-center relative overflow-hidden">
+        <motion.div 
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+          className="max-w-4xl mx-auto py-12 sm:py-20 px-6 sm:px-8 rounded-[24px] sm:rounded-[40px] bg-gradient-to-b from-primary/5 to-transparent border border-white/5 text-center relative overflow-hidden"
+        >
           {/* Decorative Glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
           
-          <div className="relative z-10">
-            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-8 border border-primary/20">
+          <motion.div variants={staggerContainer} className="relative z-10">
+            <motion.div variants={fadeInUp} className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-8 border border-primary/20">
               <Mail className="w-8 h-8 text-primary" />
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">Stay Updated With Feraix</h2>
-            <p className="text-gray-400 text-base sm:text-lg mb-8 sm:mb-12 max-w-xl mx-auto">
+            </motion.div>
+            <motion.h2 variants={fadeInUp} className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">Stay Updated With Feraix</motion.h2>
+            <motion.p variants={fadeInUp} className="text-gray-400 text-base sm:text-lg mb-8 sm:mb-12 max-w-xl mx-auto">
               Join our newsletter to receive the latest technology insights, industry trends, and company updates directly in your inbox.
-            </p>
+            </motion.p>
             
-            <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto mb-6">
+            <motion.form variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto mb-6">
               <input
                 type="email"
                 placeholder="Enter your email address"
                 className="flex-grow bg-white/5 border border-white/10 rounded-full px-8 py-4 text-white text-sm focus:outline-none focus:border-primary/50 transition-colors"
               />
-              <button className="bg-primary text-white font-bold rounded-full px-10 py-4 hover:bg-primary/90 transition-all shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-primary text-white font-bold rounded-full px-10 py-4 shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+              >
                 Subscribe
-              </button>
-            </form>
-            <p className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">
+              </motion.button>
+            </motion.form>
+            <motion.p variants={fadeInUp} className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">
                 No spam, we promise. Only high-quality content.
-            </p>
-          </div>
-        </div>
+            </motion.p>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

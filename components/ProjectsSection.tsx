@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-center";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeInUp, staggerContainer, scaleUp } from "@/constants/animations";
 import { ArrowRight as ArrowIcon } from "lucide-react";

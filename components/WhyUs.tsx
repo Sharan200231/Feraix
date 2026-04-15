@@ -32,7 +32,7 @@ export default function WhyUs() {
   ];
 
   return (
-    <section id="why-us" className="py-24 bg-background relative overflow-hidden">
+    <section id="why-us" className=" bg-background relative overflow-hidden">
       <div className="mx-auto">
         <div className="relative w-full  mx-auto overflow-hidden border border-blue-500/30 shadow-[0_0_60px_rgba(59,130,246,0.15)]">
           {/* Background Image */}

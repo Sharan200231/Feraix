@@ -10,7 +10,7 @@ export default function ServicesHero() {
           src="/assets/serivceHero.png"
           alt="Service Background"
           fill
-          className="object-cover"
+          className="object-cover object-right sm:object-center"
           priority
         />
              </div>

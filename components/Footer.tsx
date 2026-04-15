@@ -4,8 +4,19 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-background border-t border-white/5 pt-12 sm:pt-20 pb-8 sm:pb-10">
-      <div className="container mx-auto px-4 sm:px-6">
+    <footer className="relative border-t border-white/5 pt-12 sm:pt-20 pb-8 sm:pb-10 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/assets/footer-bg.png"
+          alt="Footer Background"
+          fill
+          className="object-cover opacity-20"
+          priority
+        />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-10 sm:mb-16">
           {/* Company Info */}
           <div className="space-y-6">
@@ -86,7 +97,11 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex gap-4 text-sm">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
-                <span className="text-gray-500">123 Tech Avenue, Silicon Valley, CA 94025</span>
+                <span className="text-gray-500">2703, Damac Park tower B, Dubai, UAE</span>
+              </li>
+              <li className="flex gap-4 text-sm">
+                <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
+                <span className="text-gray-500">No. 44, Varveset Place, Wellawatte, Colombo 06, Sri Lanka</span>
               </li>
               <li className="flex gap-4 text-sm">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />

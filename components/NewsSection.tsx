@@ -62,7 +62,7 @@ export default function NewsSection() {
               onClick={() => setActiveCategory(category)}
               className={`px-5 sm:px-8 py-2 sm:py-3 rounded-full text-[10px] sm:text-xs font-semibold tracking-wider transition-all duration-300 border ${
                 activeCategory === category
-                  ? "bg-primary border-primary text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+                  ? "bg-primary border-primary text-black shadow-[0_0_15px_rgba(59,130,246,0.3)]"
                   : "bg-white/5 border-white/10 text-gray-400 hover:border-white/20 hover:text-white"
               }`}
             >
@@ -230,7 +230,7 @@ export default function NewsSection() {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-primary text-white font-bold rounded-full px-10 py-4 shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+                className="bg-primary text-black font-bold rounded-full px-10 py-4 shadow-[0_0_15px_rgba(59,130,246,0.3)]"
               >
                 Subscribe
               </motion.button>

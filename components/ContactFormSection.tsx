@@ -124,7 +124,7 @@ export default function ContactFormSection() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     type="submit" 
-                    className="w-fit flex items-center gap-3 bg-primary text-white font-bold rounded-full px-10 py-4 shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all"
+                    className="w-fit flex items-center gap-3 bg-primary text-black font-bold rounded-full px-10 py-4 shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all"
                   >
                     Send Message
                     <Send className="w-4 h-4" />

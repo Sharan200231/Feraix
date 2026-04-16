@@ -48,13 +48,13 @@ export default function Hero() {
           variants={staggerContainer}
           initial="initial"
           animate="animate"
-          className="max-w-4xl pt-20 md:pt-0"
+          className="max-w-4xl pt-10 md:pt-0"
         >
           <div className="text-left">
             {/* Top Badge */}
             <motion.div
               variants={fadeInUp}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-primary text-[10px] sm:text-xs font-bold mb-4 sm:mb-6 mt-4 sm:mt-32"
+              className="inline-flex items-center gap-2 px-3  rounded-full bg-white/5 border border-white/10 text-primary text-[10px] sm:text-xs font-bold  mt-4 sm:mt-32"
             >
               <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary animate-pulse" />
               INNOVATIVE SOLUTIONS TODAY
@@ -63,7 +63,7 @@ export default function Hero() {
             {/* Main Heading */}
             <motion.h1
               variants={fadeInUp}
-              className="text-2xl sm:text-4xl md:text-7xl font-black text-white mb-4 sm:mb-6 leading-[1.1] sm:leading-[1.1]"
+              className="text-2xl sm:text-4xl md:text-7xl font-black text-white mb-2 leading-[1.1] sm:leading-[1.1]"
             >
               Empowering Your Business with <br className="hidden md:block" />
               <span className="text-primary">SMART DIGITAL SOLUTIONS</span>
@@ -107,8 +107,8 @@ export default function Hero() {
             {/* Stats Section with nested stagger */}
             <motion.div
               variants={staggerContainer}
-              className="grid grid-cols-3 gap-2 sm:gap-8 max-w-lg mt-4 sm:mt-6 pt-4 sm:pt-3 border-t border-white/5"
-            >
+              className="grid grid-cols-3 gap-2 sm:gap-8 max-w-lg mt-4  pt-4 sm:pt-3 border-t border-white/5"
+             >
               {[
                 { label: "Projects Delivered", value: "150+" },
                 { label: "Client Satisfaction", value: "98%" },

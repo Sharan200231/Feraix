@@ -43,7 +43,7 @@ export default function AboutCTA() {
             variants={fadeInUp}
             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(59,130,246,0.5)" }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 sm:px-10 py-4 sm:py-5 bg-primary text-white font-bold rounded-full transition-all text-sm sm:text-base"
+            className="px-8 sm:px-10 py-4 sm:py-5 bg-primary text-black font-bold rounded-full transition-all text-sm sm:text-base"
           >
             Start Your Digital Journey →
           </motion.button>

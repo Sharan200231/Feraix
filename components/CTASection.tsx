@@ -42,7 +42,7 @@ export default function CTASection() {
           variants={fadeInUp}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="px-8 sm:px-10 py-3 sm:py-4 bg-primary text-white font-bold rounded-full transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] text-sm sm:text-base"
+          className="px-8 sm:px-10 py-3 sm:py-4 bg-primary text-black font-bold rounded-full transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] text-sm sm:text-base"
         >
           Discuss Your Project
         </motion.button>

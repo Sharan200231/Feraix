@@ -38,7 +38,7 @@ export default function Footer() {
           <motion.div variants={fadeInUp} className="space-y-6">
             <Link href="/" className="flex items-center">
               <Image 
-                src="/assets/logo.jpeg" 
+                src="/assets/TransLogo.png" 
                 alt="Feraix Logo" 
                 width={150} 
                 height={50} 
@@ -83,10 +83,16 @@ export default function Footer() {
           <motion.div variants={fadeInUp}>
             <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-sm">Quick Links</h4>
             <ul className="space-y-4">
-              {["Home", "About Us", "Our Projects", "Careers", "Contact"].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-white hover:text-primary transition-colors text-sm">
-                    {item}
+              {[
+                { name: "Home", href: "/" },
+                { name: "About Us", href: "/about" },
+                { name: "Our Projects", href: "/projects" },
+                { name: "Careers", href: "#" },
+                { name: "Contact", href: "/contact" },
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-white hover:text-primary transition-colors text-sm">
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -99,7 +105,7 @@ export default function Footer() {
             <ul className="space-y-4">
               {["Web Development", "Software Development", "IT Consulting", "Cloud Solutions"].map((item) => (
                 <li key={item}>
-                  <Link href="#" className="text-white hover:text-primary transition-colors text-sm">
+                  <Link href="/services" className="text-white hover:text-primary transition-colors text-sm">
                     {item}
                   </Link>
                 </li>

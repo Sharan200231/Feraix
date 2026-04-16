@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/constants/animations";
+import { ScrollFade } from "./ParallaxSection";
 
 const services = [
   {
@@ -48,7 +49,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-12 bg-background relative">
+    <section id="services" className="py-12 bg-transparent relative">
       <div className="container mx-auto px-6">
         <motion.div 
           initial="initial"
@@ -71,48 +72,49 @@ export default function Services() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {services.map((service, index) => (
-            <motion.div
-              key={index}
-              variants={fadeInUp}
-              whileHover={{ 
-                y: -10,
-                transition: { duration: 0.3 }
-              }}
-              className="group p-8 rounded-3xl bg-[#0a0a0c] border border-white/10 hover:border-primary/40 transition-colors duration-500 relative overflow-hidden flex flex-col items-center text-center h-full"
-            >
-              {/* Top and Bottom Light Effects */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-[2px] bg-primary/60 blur-[1px] shadow-[0_0_15px_5px_rgba(251,221,8,0.3)] transition-all duration-500 group-hover:w-32 group-hover:bg-primary" />
-              
-              <div className="relative mb-8">
-                {/* Icon Glow */}
-                <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                <motion.div 
-                  whileHover={{ scale: 1.1 }}
-                  className="relative w-20 h-20 rounded-full border-2 border-primary/30 flex items-center justify-center bg-background shadow-[0_0_20px_rgba(251,221,8,0.1)] group-hover:border-primary group-hover:shadow-[0_0_30px_rgba(251,221,8,0.3)] transition-all duration-500"
-                >
-                  <div className="text-primary scale-110">
-                    {service.icon}
-                  </div>
-                </motion.div>
-              </div>
-              
-              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-primary/90 transition-colors">
-                {service.title}
-              </h3>
-              
-              <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">
-                {service.description}
-              </p>
-              
-              <motion.button 
-                whileHover={{ gap: "12px" }}
-                className="flex items-center gap-2 text-primary font-bold text-sm transition-all uppercase tracking-widest pt-4 mt-auto"
+            <ScrollFade key={index} offset={20 + index * 5}>
+              <motion.div
+                variants={fadeInUp}
+                whileHover={{ 
+                  y: -10,
+                  transition: { duration: 0.3 }
+                }}
+                className="group p-8 rounded-3xl bg-[#0a0a0c]/80 border border-white/10 hover:border-primary/40 transition-colors duration-500 relative overflow-hidden flex flex-col items-center text-center h-full backdrop-blur-sm"
               >
-                Learn More
-                <span className="text-xl">›</span>
-              </motion.button>
-            </motion.div>
+                {/* Top and Bottom Light Effects */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-[2px] bg-primary/60 blur-[1px] shadow-[0_0_15px_5px_rgba(251,221,8,0.3)] transition-all duration-500 group-hover:w-32 group-hover:bg-primary" />
+                
+                <div className="relative mb-8">
+                  {/* Icon Glow */}
+                  <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <motion.div 
+                    whileHover={{ scale: 1.1 }}
+                    className="relative w-20 h-20 rounded-full border-2 border-primary/30 flex items-center justify-center bg-background shadow-[0_0_20px_rgba(251,221,8,0.1)] group-hover:border-primary group-hover:shadow-[0_0_30px_rgba(251,221,8,0.3)] transition-all duration-500"
+                  >
+                    <div className="text-primary scale-110">
+                      {service.icon}
+                    </div>
+                  </motion.div>
+                </div>
+                
+                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-primary/90 transition-colors">
+                  {service.title}
+                </h3>
+                
+                <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">
+                  {service.description}
+                </p>
+                
+                <motion.button 
+                  whileHover={{ gap: "12px" }}
+                  className="flex items-center gap-2 text-primary font-bold text-sm transition-all uppercase tracking-widest pt-4 mt-auto"
+                >
+                  Learn More
+                  <span className="text-xl">›</span>
+                </motion.button>
+              </motion.div>
+            </ScrollFade>
           ))}
         </motion.div>
       </div>

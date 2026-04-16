@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, fadeIn } from "@/constants/animations";
+import { ParallaxImage } from "./ParallaxSection";
 
 export default function CompanyStory() {
   return (
@@ -15,12 +16,15 @@ export default function CompanyStory() {
           variants={fadeIn}
           className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] overflow-hidden border-y border-white/5 shadow-2xl"
         >
-          <Image
-            src="/assets/Company Overview Sectionv1.png"  
-            alt="Company Story"
-            fill
-            className="object-cover"
-          />
+          {/* Background image with parallax depth */}
+          <ParallaxImage offset={50} className="absolute inset-0">
+            <Image
+              src="/assets/Company Overview Sectionv1.png"  
+              alt="Company Story"
+              fill
+              className="object-cover"
+            />
+          </ParallaxImage>
           {/* Overlay with Text */}
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div 

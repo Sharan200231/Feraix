@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: "Next-gen technology solutions for web, mobile, and cloud.",
 };
 
+import GalaxyBackground from "@/components/three/GalaxyBackground";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,7 +24,11 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col bg-transparent text-foreground">
+        {/* Global animated background for all pages */}
+        <div className="fixed inset-0 z-[-1] pointer-events-none">
+          <GalaxyBackground />
+        </div>
         {children}
       </body>
     </html>

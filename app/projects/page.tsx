@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-background selection:bg-primary selection:text-white">
+    <main className="min-h-screen bg-transparent selection:bg-primary selection:text-white">
       <Navbar />
       <ProjectsHero />
       <ProjectsSection />

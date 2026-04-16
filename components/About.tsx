@@ -3,23 +3,21 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, fadeIn } from "@/constants/animations";
+import { ParallaxImage, ParallaxGlow } from "./ParallaxSection";
 
 export default function About() {
   return (
-    <section id="about" className=" bg-background relative overflow-hidden">
+    <section id="about" className=" bg-transparent relative overflow-hidden">
       <div className=" mx-auto ">
         <motion.div
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer}
-          className="relative w-full mx-auto overflow-hidden border border-blue-500/30 shadow-[0_0_50px_rgba(59,130,246,0.15)] group min-h-[85vh] md:min-h-0 flex flex-col justify-end md:block"
+          className="relative w-full mx-auto overflow-hidden shadow-[0_0_50px_rgba(59,130,246,0.15)] group min-h-[85vh] md:min-h-0 flex flex-col justify-end md:block"
         >
-          {/* Background Image - Mobile */}
-          <motion.div 
-            variants={fadeIn}
-            className="absolute inset-0 z-0 block md:hidden"
-          >
+          {/* Background Image - Mobile (boosted parallax depth) */}
+          <ParallaxImage offset={100} className="absolute inset-0 z-0 block md:hidden">
             <Image
               src="/assets/mobileAbout.png"
               alt="About Feraix"
@@ -30,13 +28,10 @@ export default function About() {
             {/* Gradient Overlays for readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent" />
             <div className="absolute inset-0 bg-blue-900/10" />
-          </motion.div>
+          </ParallaxImage>
 
-          {/* Background Image - Tablet & Desktop */}
-          <motion.div 
-            variants={fadeIn}
-            className="absolute inset-0 z-0 hidden md:block"
-          >
+          {/* Background Image - Tablet & Desktop (boosted parallax depth) */}
+          <ParallaxImage offset={140} className="absolute inset-0 z-0 hidden md:block">
             <Image
               src="/assets/aboutV1.png"
               alt="About Feraix"
@@ -48,7 +43,7 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
             <div className="absolute inset-0 bg-blue-900/10" />
-          </motion.div>
+          </ParallaxImage>
 
           {/* Content */}
           <motion.div
@@ -91,8 +86,8 @@ export default function About() {
             </motion.button>
           </motion.div>
 
-          {/* Decorative Corner Glow */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-accent-blue/10 blur-[100px] rounded-full -mr-32 -mt-32" />
+          {/* Decorative Corner Glow (boosted parallax) */}
+          <ParallaxGlow offset={120} direction="down" className="absolute top-0 right-0 w-64 h-64 bg-accent-blue/10 blur-[100px] rounded-full -mr-32 -mt-32" />
         </motion.div>
       </div>
     </section>

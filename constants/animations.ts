@@ -53,6 +53,21 @@ export const slideInLeft: Variants = {
   },
 };
 
+export const slideInRight: Variants = {
+  initial: {
+    x: 30,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
 export const scaleUp: Variants = {
   initial: {
     scale: 0.9,

@@ -4,17 +4,13 @@ import Image from "next/image";
 import { FolderOpen } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, fadeIn } from "@/constants/animations";
+import { ParallaxImage } from "./ParallaxSection";
 
 export default function ServicesHero() {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Full Background Scene */}
-      <motion.div 
-        initial="initial"
-        animate="animate"
-        variants={fadeIn}
-        className="absolute inset-0 z-0"
-      >
+      {/* Full Background Scene (parallax depth) */}
+      <ParallaxImage offset={50} className="absolute inset-0 z-0">
         <Image
           src="/assets/serivceHero.png"
           alt="Service Background"
@@ -22,7 +18,7 @@ export default function ServicesHero() {
           className="object-cover object-right sm:object-center"
           priority
         />
-      </motion.div>
+      </ParallaxImage>
 
       <motion.div 
         initial="initial"

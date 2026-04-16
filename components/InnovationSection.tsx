@@ -4,17 +4,13 @@ import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, fadeIn, slideInLeft } from "@/constants/animations";
+import { ParallaxGlow } from "./ParallaxSection";
 
 export default function InnovationSection() {
   return (
     <section className="py-16 sm:py-24 bg-background relative overflow-hidden">
-      {/* Background patterns */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10"
-      ></motion.div>
+      {/* Background patterns – parallax glow for depth */}
+      <ParallaxGlow offset={60} direction="down" className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10" />
       
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex flex-col lg:flex-row items-center gap-10 sm:gap-16 lg:gap-20">
@@ -35,19 +31,8 @@ export default function InnovationSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent mix-blend-overlay"></div>
             </div>
-            {/* Decorative elements */}
-            <motion.div 
-              animate={{ 
-                scale: [1, 1.1, 1],
-                opacity: [0.2, 0.4, 0.2] 
-              }}
-              transition={{ 
-                duration: 4, 
-                repeat: Infinity,
-                ease: "easeInOut" 
-              }}
-              className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-2xl -z-10"
-            ></motion.div>
+            {/* Decorative elements – parallax glow */}
+            <ParallaxGlow offset={40} className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-2xl -z-10" />
           </motion.div>
 
           <div className="lg:w-1/2">

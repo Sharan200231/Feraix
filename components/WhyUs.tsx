@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, fadeIn } from "@/constants/animations";
+import { ParallaxImage } from "./ParallaxSection";
 
 export default function WhyUs() {
   const listItems = [
@@ -36,17 +37,17 @@ export default function WhyUs() {
   ];
 
   return (
-    <section id="why-us" className=" bg-background relative overflow-hidden">
+    <section id="why-us" className=" bg-transparent relative overflow-hidden">
       <div className="mx-auto">
         <motion.div 
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
-          className="relative w-full  mx-auto overflow-hidden border border-blue-500/30 shadow-[0_0_60px_rgba(59,130,246,0.15)]"
+          className="relative w-full  mx-auto overflow-hidden shadow-[0_0_60px_rgba(59,130,246,0.15)]"
         >
-          {/* Background Image */}
-          <motion.div variants={fadeIn} className="absolute inset-0 z-0">
+          {/* Background Image (boosted parallax depth) */}
+          <ParallaxImage offset={130} className="absolute inset-0 z-0">
             <Image
               src="/assets/whyus.png"
               alt="Why Choose Feraix"
@@ -56,16 +57,16 @@ export default function WhyUs() {
             />
             <div className="absolute inset-0 bg-blue-900/40 backdrop-blur-[2px]" />
             <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent opacity-80" />
-          </motion.div>
+          </ParallaxImage>
 
-          <div className="relative z-10 px-8 py-16 md:px-16 md:py-24 flex flex-col lg:flex-row items-center gap-16">
+          <div className="relative z-10 px-4 sm:px-8 md:px-16 py-12 md:py-24 flex flex-col lg:flex-row items-center gap-12 md:gap-16">
             {/* Left Content */}
             <div className="flex-1">
               <motion.div variants={fadeInUp} className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
                 Why Choose Feraix
               </motion.div>
-              <motion.h2 variants={fadeInUp} className="text-4xl md:text-6xl font-black text-white mb-8 leading-[1.1]">
-                Why Businesses <br />
+              <motion.h2 variants={fadeInUp} className="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-8 leading-[1.1]">
+                Why Businesses <br className="hidden sm:block" />
                 <span className="text-primary italic">Choose Us</span>
               </motion.h2>
 
@@ -80,16 +81,16 @@ export default function WhyUs() {
                     <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background transition-all duration-300">
                       <span className="text-xl">{item.icon}</span>
                     </div>
-                    <span className="text-gray-200 font-medium md:text-lg">{item.text}</span>
+                    <span className="text-gray-200 font-medium text-sm sm:text-base md:text-lg">{item.text}</span>
                   </motion.div>
                 ))}
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center gap-6">
+              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-primary text-background font-bold rounded-full transition-all shadow-[0_0_30px_rgba(251,221,8,0.3)] flex items-center gap-2 text-lg"
+                  className="px-6 sm:px-10 py-3.5 sm:py-4 bg-primary text-background font-bold rounded-full transition-all shadow-[0_0_30px_rgba(251,221,8,0.3)] flex items-center justify-center gap-2 text-base sm:text-lg"
                 >
                   START FREE TRIAL
                   <span className="text-xl">›</span>
@@ -97,7 +98,7 @@ export default function WhyUs() {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all flex items-center gap-2 backdrop-blur-md text-lg"
+                  className="px-6 sm:px-10 py-3.5 sm:py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all flex items-center justify-center gap-2 backdrop-blur-md text-base sm:text-lg"
                 >
                   <span className="w-5 h-5 opacity-50">📅</span>
                   Schedule Demo
@@ -106,20 +107,22 @@ export default function WhyUs() {
               </motion.div>
             </div>
 
-            {/* Right Stat Grid */}
-            <motion.div variants={staggerContainer} className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+            {/* Right Stat Grid - Two Column on Mobile */}
+            <motion.div variants={staggerContainer} className="flex-1 grid grid-cols-2 gap-3 sm:gap-6 w-full">
               {statCards.map((stat, i) => (
                 <motion.div 
                   key={i} 
                   variants={fadeInUp}
                   whileHover={{ y: -10 }}
-                  className={`p-10 rounded-[2rem] border border-white/10 ${stat.color} backdrop-blur-xl flex flex-col items-center text-center group transition-all duration-500 shadow-xl`}
+                  className={`p-4 sm:p-10 rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 ${stat.color} backdrop-blur-xl flex flex-col items-center text-center group transition-all duration-500 shadow-xl`}
                 >
-                  <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform duration-500 text-background">
-                    {stat.icon}
+                  <div className="w-12 h-12 sm:w-20 sm:h-20 rounded-full bg-white flex items-center justify-center mb-4 sm:mb-6 shadow-[0_0_30px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform duration-500 text-background">
+                    <div className="scale-75 sm:scale-100">
+                      {stat.icon}
+                    </div>
                   </div>
-                  <h3 className="text-5xl font-black text-white mb-2 tracking-tight">{stat.value}</h3>
-                  <p className="text-gray-200 text-sm font-bold uppercase tracking-widest opacity-80">{stat.label}</p>
+                  <h3 className="text-2xl sm:text-5xl font-black text-white mb-1 sm:mb-2 tracking-tight">{stat.value}</h3>
+                  <p className="text-[10px] sm:text-sm font-bold uppercase tracking-widest opacity-80 leading-tight">{stat.label}</p>
                 </motion.div>
               ))}
             </motion.div>

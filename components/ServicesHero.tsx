@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { FolderOpen } from "lucide-react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, fadeIn } from "@/constants/animations";
 import { ParallaxImage } from "./ParallaxSection";
@@ -44,13 +45,15 @@ export default function ServicesHero() {
             variants={fadeInUp}
             className="flex flex-col sm:flex-row gap-6 items-center sm:items-stretch"
           >
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 sm:px-10 py-4 sm:py-5 bg-primary text-black font-extrabold rounded-full transition-all shadow-[0_0_30px_rgba(251,221,8,0.3)] text-sm sm:text-base"
-            >
-              Get a Free Consultation →
-            </motion.button>
+            <Link href="/contact#contact-form">
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 sm:px-10 py-4 sm:py-5 bg-primary text-black font-extrabold rounded-full transition-all shadow-[0_0_30px_rgba(251,221,8,0.3)] text-sm sm:text-base w-full sm:w-auto text-center justify-center flex items-center"
+              >
+                Get a Free Consultation →
+              </motion.button>
+            </Link>
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

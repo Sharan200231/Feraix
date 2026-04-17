@@ -7,7 +7,7 @@ import { fadeInUp, staggerContainer } from "@/constants/animations";
 
 export default function ContactFormSection() {
   return (
-    <section className="py-12 sm:py-24 bg-background selection:bg-primary selection:text-white overflow-hidden">
+    <section id="contact-form" className="py-12 sm:py-24 bg-background selection:bg-primary selection:text-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div 
           initial="initial"

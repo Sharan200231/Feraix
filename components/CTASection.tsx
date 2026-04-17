@@ -5,7 +5,7 @@ import { fadeInUp, staggerContainer } from "@/constants/animations";
 
 export default function CTASection() {
   return (
-    <section className="relative py-16 sm:py-32 overflow-hidden bg-[#020617]">
+    <section className="relative py-16 sm:py-32 overflow-hidden bg-transparent">
       {/* Background Pattern - Mesh style */}
       <motion.div 
         initial={{ opacity: 0 }}

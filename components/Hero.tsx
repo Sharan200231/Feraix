@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeInUp, staggerContainer, fadeIn, slideInLeft, slideInRight } from "@/constants/animations";
 import { ParallaxImage, ParallaxGlow } from "./ParallaxSection";
@@ -19,7 +20,7 @@ function AnimatedPhrase() {
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % phrases.length);
-    }, 4000);
+    }, 3000); // Reduced from 4000ms
     return () => clearInterval(timer);
   }, []);
 
@@ -27,10 +28,10 @@ function AnimatedPhrase() {
     <AnimatePresence mode="wait">
       <motion.span
         key={index}
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        exit={{ opacity: 0, y: -15 }}
+        transition={{ duration: 0.3, ease: "easeOut" }} // Reduced from 0.5s
         className="flex flex-wrap"
       >
         {phrases[index].split("").map((char, i) => (
@@ -38,7 +39,7 @@ function AnimatedPhrase() {
             key={`${index}-${i}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: i * 0.05 }}
+            transition={{ delay: i * 0.03 }} // Reduced from 0.05s
           >
             {char === " " ? "\u00A0" : char}
           </motion.span>
@@ -97,7 +98,17 @@ export default function Hero() {
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
-          variants={staggerContainer}
+          variants={{
+            ...staggerContainer,
+            animate: {
+              ...staggerContainer.animate,
+              transition: {
+                ...staggerContainer.animate?.transition,
+                staggerChildren: 0.05, // Faster stagger
+                delayChildren: 0.1, // Less initial delay
+              }
+            }
+          }}
           initial="initial"
           animate="animate"
           className="max-w-5xl pt-10 md:pt-0"
@@ -141,24 +152,28 @@ export default function Hero() {
               variants={slideInLeft}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-start"
             >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-background font-bold rounded-xl shadow-[0_0_30px_rgba(251,221,8,0.3)] group flex items-center justify-center gap-2 text-xs sm:text-base"
-              >
-                START FREE TRIAL
-                <span className="group-hover:translate-x-1 transition-transform">
-                  →
-                </span>
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 sm:px-8 py-3 sm:py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl transition-colors flex items-center justify-center gap-2 text-xs sm:text-base"
-              >
-                <span className="w-2 h-2 rounded-full bg-white/20" />
-                Schedule Demo
-              </motion.button>
+              <Link href="/services#our-services">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-background font-bold rounded-xl shadow-[0_0_30px_rgba(251,221,8,0.3)] group flex items-center justify-center gap-2 text-xs sm:text-base w-full sm:w-auto"
+                >
+                  START FREE TRIAL
+                  <span className="group-hover:translate-x-1 transition-transform">
+                    →
+                  </span>
+                </motion.button>
+              </Link>
+              <Link href="/contact#schedule">
+                <motion.button
+                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-6 sm:px-8 py-3 sm:py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl transition-colors flex items-center justify-center gap-2 text-xs sm:text-base w-full sm:w-auto"
+                >
+                  <span className="w-2 h-2 rounded-full bg-white/20" />
+                  Schedule Demo
+                </motion.button>
+              </Link>
             </motion.div>
 
             {/* Stats Section with nested stagger */}

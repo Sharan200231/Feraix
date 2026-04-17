@@ -65,9 +65,11 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            <button className="hidden md:block px-6 py-2 bg-transparent border border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-black transition-all duration-300 text-sm">
-              Get Started
-            </button>
+            <Link href="/contact#contact-form">
+              <button className="hidden md:block px-6 py-2 bg-transparent border border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-black transition-all duration-300 text-sm">
+                Get Started
+              </button>
+            </Link>
 
             {/* Mobile Menu Toggle */}
             <button 
@@ -134,9 +136,11 @@ export default function Navbar() {
           </div>
 
           <div className="mt-8 pt-8 border-t border-white/5">
-            <button className="w-full px-6 py-3 bg-primary text-black font-bold rounded-2xl hover:bg-primary/90 transition-all text-base shadow-[0_0_20px_rgba(251,221,8,0.2)]">
-              Get Started
-            </button>
+            <Link href="/contact#contact-form" onClick={() => setMobileOpen(false)}>
+              <button className="w-full px-6 py-3 bg-primary text-black font-bold rounded-2xl hover:bg-primary/90 transition-all text-base shadow-[0_0_20px_rgba(251,221,8,0.2)]">
+                Get Started
+              </button>
+            </Link>
           </div>
         </div>
       </div>

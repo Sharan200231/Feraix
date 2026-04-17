@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeInUp, fadeIn, staggerContainer } from "@/constants/animations";
 
@@ -39,14 +40,16 @@ export default function AboutCTA() {
             Join hands with Feraix to build scalable, secure, and futuristic digital solutions.
           </motion.p>
           
-          <motion.button 
-            variants={fadeInUp}
-            whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(59,130,246,0.5)" }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 sm:px-10 py-4 sm:py-5 bg-primary text-black font-bold rounded-full transition-all text-sm sm:text-base"
-          >
-            Start Your Digital Journey →
-          </motion.button>
+          <Link href="/contact#contact-form">
+            <motion.button 
+              variants={fadeInUp}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(59,130,246,0.5)" }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 sm:px-10 py-4 sm:py-5 bg-primary text-black font-bold rounded-full transition-all text-sm sm:text-base w-full sm:w-auto"
+            >
+              Start Your Digital Journey →
+            </motion.button>
+          </Link>
         </motion.div>
       </div>
     </section>

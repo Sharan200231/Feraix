@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, fadeIn } from "@/constants/animations";
 
@@ -48,20 +49,23 @@ export default function ContactHero() {
           variants={fadeInUp}
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
-          <motion.button 
+          <motion.a 
+            href="#contact-form"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 sm:px-10 py-3 sm:py-4 bg-primary text-black font-bold rounded-full transition-all shadow-[0_0_15px_rgba(59,130,246,0.3)] text-sm sm:text-base"
+            className="px-8 sm:px-10 py-3 sm:py-4 bg-primary text-black font-bold rounded-full transition-all shadow-[0_0_15px_rgba(251,221,8,0.3)] text-sm sm:text-base text-center"
           >
             Send a Message
-          </motion.button>
-          <motion.button 
+          </motion.a>
+          
+          <motion.a 
+            href="#schedule"
             whileHover={{ scale: 1.05, border: "1px solid rgba(255,255,255,0.4)" }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 sm:px-10 py-3 sm:py-4 bg-transparent border border-white/20 text-white font-bold rounded-full transition-all text-sm sm:text-base"
+            className="px-8 sm:px-10 py-3 sm:py-4 bg-transparent border border-white/20 text-white font-bold rounded-full transition-all text-sm sm:text-base text-center"
           >
             Schedule Consultation
-          </motion.button>
+          </motion.a>
         </motion.div>
       </motion.div>
       

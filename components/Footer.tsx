@@ -125,8 +125,11 @@ export default function Footer() {
                 <span className="text-white">contact@feraix.tech</span>
               </li>
               <li className="flex gap-4 text-sm">
-                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <span className="text-white">+1 (555) 123-4567</span>
+                <Phone className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1.5">
+                  <span className="text-white">+971 55 212 4675 (Dubai)</span>
+                  <span className="text-white">+94 77 740 0036 (Sri Lanka)</span>
+                </div>
               </li>
             </ul>
           </motion.div>

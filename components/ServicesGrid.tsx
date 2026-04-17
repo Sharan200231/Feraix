@@ -31,7 +31,7 @@ const services = [
 
 export default function ServicesGrid() {
   return (
-    <section className="bg-[#020617] relative">
+    <section id="our-services" className="bg-[#020617] relative">
       <div className=" mx-auto ">
         {/* Main Services Container */}
         <div className="relative overflow-hidden border border-white/5 shadow-2xl min-h-[600px] sm:min-h-[800px] flex flex-col justify-center p-6 sm:p-12 lg:p-20">

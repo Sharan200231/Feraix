@@ -1,6 +1,7 @@
 "use client";
 
 import { Calendar } from "lucide-react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/constants/animations";
 
@@ -34,15 +35,16 @@ export default function ContactCTA() {
           Schedule a direct 30-minute discovery call with our technical experts to discuss your specific requirements.
         </motion.p>
         
-        <motion.button 
+        <motion.a 
+          href="#schedule"
           variants={fadeInUp}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="px-10 py-4 bg-white text-background font-bold rounded-full hover:bg-gray-100 transition-all flex items-center gap-3 mx-auto shadow-xl"
+          className="px-10 py-4 bg-white text-background font-bold rounded-full hover:bg-gray-100 transition-all flex items-center gap-3 mx-auto shadow-xl inline-flex"
         >
           <Calendar className="w-5 h-5 text-background" />
           Book a Consultation
-        </motion.button>
+        </motion.a>
       </motion.div>
     </section>
   );

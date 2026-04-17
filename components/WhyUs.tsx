@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, fadeIn } from "@/constants/animations";
 import { ParallaxImage } from "./ParallaxSection";
@@ -87,23 +88,27 @@ export default function WhyUs() {
               </motion.div>
 
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-6 sm:px-10 py-3.5 sm:py-4 bg-primary text-background font-bold rounded-full transition-all shadow-[0_0_30px_rgba(251,221,8,0.3)] flex items-center justify-center gap-2 text-base sm:text-lg"
-                >
-                  START FREE TRIAL
-                  <span className="text-xl">›</span>
-                </motion.button>
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-6 sm:px-10 py-3.5 sm:py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all flex items-center justify-center gap-2 backdrop-blur-md text-base sm:text-lg"
-                >
-                  <span className="w-5 h-5 opacity-50">📅</span>
-                  Schedule Demo
-                  <span className="text-xl opacity-50">›</span>
-                </motion.button>
+                <Link href="/services#our-services">
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-6 sm:px-10 py-3.5 sm:py-4 bg-primary text-background font-bold rounded-full transition-all shadow-[0_0_30px_rgba(251,221,8,0.3)] flex items-center justify-center gap-2 text-base sm:text-lg w-full sm:w-auto"
+                  >
+                    START FREE TRIAL
+                    <span className="text-xl">›</span>
+                  </motion.button>
+                </Link>
+                <Link href="/contact#schedule">
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-6 sm:px-10 py-3.5 sm:py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all flex items-center justify-center gap-2 backdrop-blur-md text-base sm:text-lg w-full sm:w-auto"
+                  >
+                    <span className="w-5 h-5 opacity-50">📅</span>
+                    Schedule Demo
+                    <span className="text-xl opacity-50">›</span>
+                  </motion.button>
+                </Link>
               </motion.div>
             </div>
 

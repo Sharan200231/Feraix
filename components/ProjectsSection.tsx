@@ -112,10 +112,24 @@ export default function ProjectsSection() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={`${currentProject?.id}-${activeCategory}`}
-                initial={{ opacity: 0, scale: 0.9, x: -30 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                exit={{ opacity: 0, scale: 0.9, x: 30 }}
-                transition={{ type: "spring", damping: 20, stiffness: 100 }}
+                initial={{ opacity: 0, x: -180, y: -40, rotate: 15 }}
+                animate={{ 
+                  opacity: 1, 
+                  x: [-180, -70, 0],
+                  y: [-40, 50, 0],
+                  rotate: [15, -5, 0],
+                }}
+                exit={{ 
+                  opacity: 0, 
+                  x: 150, 
+                  y: 40, 
+                  rotate: -15 
+                }}
+                transition={{ 
+                  duration: 0.9, 
+                  ease: "easeInOut",
+                  times: [0, 0.6, 1]
+                }}
                 className="relative w-full aspect-[4/3] sm:max-w-[600px]"
               >
                 {/* Decorative Frame */}
@@ -143,10 +157,23 @@ export default function ProjectsSection() {
               {currentProject && (
                 <motion.div
                   key={`${currentProject.id}-${activeCategory}`}
+                  variants={{
+                    initial: { opacity: 0, x: 150 },
+                    animate: { 
+                      opacity: 1, 
+                      x: 0,
+                      transition: { 
+                        duration: 0.9, 
+                        ease: "easeOut",
+                        staggerChildren: 0.1,
+                        delayChildren: 0.2
+                      }
+                    },
+                    exit: { opacity: 0, x: -100, transition: { duration: 0.5 } }
+                  }}
                   initial="initial"
                   animate="animate"
-                  exit={{ opacity: 0, y: -20 }}
-                  variants={staggerContainer}
+                  exit="exit"
                   className="max-w-xl mx-auto lg:mx-0"
                 >
                   <motion.span 

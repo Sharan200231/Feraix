@@ -99,15 +99,13 @@ export default function Hero() {
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           variants={{
-            ...staggerContainer,
+            initial: {},
             animate: {
-              ...staggerContainer.animate,
               transition: {
-                ...staggerContainer.animate?.transition,
-                staggerChildren: 0.05, // Faster stagger
-                delayChildren: 0.1, // Less initial delay
-              }
-            }
+                staggerChildren: 0.05,
+                delayChildren: 0.1,
+              },
+            },
           }}
           initial="initial"
           animate="animate"

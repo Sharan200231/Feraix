@@ -68,41 +68,41 @@ export default function Services() {
       </AnimatePresence>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-24">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-24">
           
-          {/* Left Side: Service Details */}
-          <div className="w-full lg:w-1/2 text-center lg:text-left min-h-[400px] flex flex-col justify-center">
+          {/* Left Side: Service Details (Top on Mobile) */}
+          <div className="w-full lg:w-1/2 text-center lg:text-left min-h-[480px] sm:min-h-[400px] flex flex-col justify-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedIndex}
-                initial={{ opacity: 0, x: -50 }}
+                initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 50 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                exit={{ opacity: 0, x: 30 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
                 className="max-w-xl mx-auto lg:mx-0"
               >
                 <motion.div
                    initial={{ scale: 0.5, opacity: 0 }}
                    animate={{ scale: 1, opacity: 1 }}
-                   className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 mb-8 ${activeService.accent}`}
+                   className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 mb-6 sm:mb-8 ${activeService.accent}`}
                 >
                   <Sparkles size={16} />
-                  <span className="text-xs font-bold tracking-[0.2em] uppercase">{activeService.subtitle}</span>
+                  <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">{activeService.subtitle}</span>
                 </motion.div>
 
-                <h2 className="text-4xl sm:text-6xl font-black text-white mb-6 leading-tight">
+                <h2 className="text-3xl sm:text-6xl font-black text-white mb-4 sm:mb-6 leading-tight uppercase">
                   {activeService.title}
                 </h2>
 
-                <p className="text-gray-400 text-base sm:text-lg mb-10 leading-relaxed">
+                <p className="text-gray-400 text-sm sm:text-lg mb-8 sm:mb-10 leading-relaxed">
                   {activeService.description}
                 </p>
 
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4">
                   <motion.button
                     whileHover={{ scale: 1.05, x: 5 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-primary text-black font-bold rounded-xl flex items-center gap-2 shadow-[0_0_30px_rgba(251,221,8,0.3)]"
+                    className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-black font-bold rounded-xl flex items-center gap-2 shadow-[0_0_30px_rgba(251,221,8,0.3)] text-xs sm:text-base"
                   >
                     Get Started Now
                     <ArrowRight size={18} />
@@ -110,7 +110,7 @@ export default function Services() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-colors"
+                    className="px-6 sm:px-8 py-3 sm:py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-xs sm:text-base"
                   >
                     View Pricing
                   </motion.button>
@@ -119,61 +119,62 @@ export default function Services() {
             </AnimatePresence>
           </div>
 
-          {/* Right Side: Visual Representation */}
+          {/* Right Side: Visual Representation (Bottom on Mobile) */}
           <div className="w-full lg:w-1/2 flex justify-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedIndex}
-                initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                exit={{ opacity: 0, scale: 0.8, rotate: 10 }}
-                transition={{ type: "spring", damping: 20, stiffness: 100 }}
-                className="relative w-full max-w-[500px] aspect-square group"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4 }}
+                className="relative w-full max-w-[450px] aspect-square group"
               >
-                {/* Main Visual Container */}
-                <div className="absolute inset-0 rounded-[48px] border-2 border-white/10 p-4">
-                  <div className="w-full h-full rounded-[38px] overflow-hidden relative border border-white/5 bg-[#0a0a0c]">
+                <div className="absolute inset-0 rounded-[32px] sm:rounded-[48px] border-2 border-white/10 p-2 sm:p-4">
+                  <div className="w-full h-full rounded-[24px] sm:rounded-[38px] overflow-hidden relative border border-white/5 bg-[#0a0a0c]">
                     <Image
                        src={activeService.image}
                        alt={activeService.title}
                        fill
                        className="object-cover group-hover:scale-110 transition-transform duration-1000"
                     />
-                    <div className="absolute " />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#020617]/20 to-[#020617]" />
                   </div>
                 </div>
-
-               </motion.div>
+              </motion.div>
             </AnimatePresence>
           </div>
         </div>
 
-        {/* Bottom Switcher: Nav Tabs */}
-        <div className="mt-10 flex flex-wrap justify-center gap-4 sm:gap-6">
+        {/* Bottom Switcher: Compact Nav Tabs */}
+        <div className="mt-4 sm:mt-12 flex flex-nowrap lg:flex-wrap items-center justify-start sm:justify-center gap-2 sm:gap-6 overflow-x-auto no-scrollbar pt-4 pb-6 sm:pb-0 px-4 sm:px-0">
           {services.map((service, index) => (
             <motion.button
               key={service.id}
               onClick={() => setSelectedIndex(index)}
               onMouseEnter={() => setSelectedIndex(index)}
-              whileHover={{ y: -5 }}
+              onTouchStart={() => setSelectedIndex(index)}
+              whileHover={{ y: -3 }}
               whileTap={{ scale: 0.95 }}
-              className={`group relative p-4 sm:p-6 rounded-2xl border transition-all duration-300 flex flex-col items-center gap-3 min-w-[140px] ${
+              className={`group relative p-3 sm:p-6 rounded-xl sm:rounded-2xl border transition-all duration-300 flex flex-col items-center gap-2 sm:gap-3 min-w-[100px] sm:min-w-[140px] flex-shrink-0 ${
                 selectedIndex === index
-                  ? "bg-white/10 border-primary border-2 shadow-[0_0_30px_rgba(251,221,8,0.2)]"
+                  ? "bg-white/10 border-primary border shadow-[0_0_20px_rgba(251,221,8,0.2)]"
                   : "bg-white/5 border-white/10 grayscale hover:grayscale-0 hover:border-white/30"
               }`}
             >
               <div className={`transition-colors duration-300 ${selectedIndex === index ? "text-primary" : "text-gray-400 group-hover:text-white"}`}>
-                {service.icon}
+                <div className="scale-75 sm:scale-110">
+                  {service.icon}
+                </div>
               </div>
-              <span className={`text-[10px] sm:text-xs font-bold tracking-widest ${selectedIndex === index ? "text-white" : "text-gray-500 group-hover:text-gray-300"}`}>
+              <span className={`text-[8px] sm:text-xs font-bold tracking-[0.15em] sm:tracking-widest ${selectedIndex === index ? "text-white" : "text-gray-500 group-hover:text-gray-300"}`}>
                 {service.title.toUpperCase()}
               </span>
               
               {selectedIndex === index && (
                 <motion.div
-                  layoutId="activeTabGlow"
-                  className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-12 h-1 bg-primary rounded-full"
+                  layoutId="activeServiceTab"
+                  className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 sm:w-12 h-1 bg-primary rounded-full shadow-[0_0_10px_#fbdd08]"
                 />
               )}
             </motion.button>

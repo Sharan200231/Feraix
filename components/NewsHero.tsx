@@ -6,7 +6,7 @@ import { fadeInUp, staggerContainer, fadeIn } from "@/constants/animations";
 
 export default function NewsHero() {
   return (
-    <section className="relative min-h-[50vh] sm:min-h-[60vh] flex items-center justify-center pt-28 sm:pt-32 pb-12 sm:pb-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center pt-28 sm:pt-32 pb-12 sm:pb-20 overflow-hidden">
       {/* Background Image */}
       <motion.div 
         initial="initial"

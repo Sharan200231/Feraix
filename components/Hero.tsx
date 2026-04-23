@@ -151,26 +151,26 @@ export default function Hero() {
               variants={slideInLeft}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-start"
             >
-              <Link href="/services#our-services">
+              <Link href="/contact#schedule">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-background font-bold rounded-full shadow-[0_0_30px_rgba(251,221,8,0.3)] group flex items-center justify-center gap-2 text-xs sm:text-base w-full sm:w-auto"
                 >
-                  START FREE TRIAL
+                  SCHEDULE A DEMO
                   <span className="group-hover:translate-x-1 transition-transform">
                     →
                   </span>
                 </motion.button>
               </Link>
-              <Link href="/contact#schedule">
+              <Link href="/services#our-services">
                 <motion.button
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+                  whileHover={{ scale: 1.05, backgroundColor: "rgba(251,221,8,0.1)" }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 sm:px-8 py-3 sm:py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full transition-colors flex items-center justify-center gap-2 text-xs sm:text-base w-full sm:w-auto"
+                  className="px-6 sm:px-8 py-3 sm:py-4 bg-white/5 border border-primary text-white font-bold rounded-full transition-colors flex items-center justify-center gap-2 text-xs sm:text-base w-full sm:w-auto hover:text-primary"
                 >
-                  <span className="w-2 h-2 rounded-full bg-white/20" />
-                  Schedule Demo
+                  <span className="w-2 h-2 rounded-full bg-primary" />
+                  Explore our services
                 </motion.button>
               </Link>
             </motion.div>
@@ -181,15 +181,15 @@ export default function Hero() {
               className="grid grid-cols-3 gap-2 sm:gap-8 max-w-lg mt-4  pt-4 sm:pt-3 border-t border-white/5"
              >
               {[
-                { label: "Projects Delivered", value: "150+" },
-                { label: "Client Satisfaction", value: "98%" },
-                { label: "Years Experience", value: "5+" },
+                { label: "Projects\nDelivered", value: "150+" },
+                { label: "Client\nSatisfaction", value: "98%" },
+                { label: "Years\nExperience", value: "5+" },
               ].map((stat, i) => (
                 <motion.div key={i} variants={slideInLeft}>
                   <h3 className="text-xl sm:text-3xl md:text-4xl font-black text-white mb-1">
                     {stat.value}
                   </h3>
-                  <p className="text-gray text-[10px] sm:text-xs uppercase tracking-widest font-bold">
+                  <p className="text-gray text-[10px] sm:text-xs uppercase tracking-widest font-bold whitespace-pre-line sm:whitespace-normal">
                     {stat.label}
                   </p>
                 </motion.div>

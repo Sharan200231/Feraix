@@ -89,25 +89,24 @@ export default function WhyUs() {
               </motion.div>
 
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
-                <Link href="/services#our-services">
+                <Link href="/contact#schedule">
                   <motion.button 
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="px-6 sm:px-10 py-3.5 sm:py-4 bg-primary text-background font-bold rounded-full transition-all shadow-[0_0_30px_rgba(251,221,8,0.3)] flex items-center justify-center gap-2 text-base sm:text-lg w-full sm:w-auto"
                   >
-                    START FREE TRIAL
+                    SCHEDULE A DEMO
                     <ChevronRight className="w-5 h-5" />
                   </motion.button>
                 </Link>
-                <Link href="/contact#schedule">
+                <Link href="/services#our-services">
                   <motion.button 
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ scale: 1.05, backgroundColor: "rgba(251,221,8,0.1)" }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-6 sm:px-10 py-3.5 sm:py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all flex items-center justify-center gap-2 backdrop-blur-md text-base sm:text-lg w-full sm:w-auto"
+                    className="px-6 sm:px-10 py-3.5 sm:py-4 bg-white/5 border border-primary text-white font-bold rounded-full transition-all flex items-center justify-center gap-2 backdrop-blur-md text-base sm:text-lg w-full sm:w-auto hover:text-primary"
                   >
-                    <Calendar className="w-5 h-5 opacity-70" />
-                    Schedule Demo
-                    <ChevronRight className="w-5 h-5 opacity-50" />
+                    <span className="w-2 h-2 rounded-full bg-primary" />
+                    Explore our services
                   </motion.button>
                 </Link>
               </motion.div>

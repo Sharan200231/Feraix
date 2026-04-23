@@ -8,22 +8,22 @@ const team = [
   {
     name: "David Chen",
     role: "Lead Architect",
-    image: "/Author.png",
+    image: "/person1.jpeg",
   },
   {
     name: "Sarah Jenkins",
     role: "Art Director",
-    image: "/Author.png",
+    image: "/person2.jpeg",
   },
   {
     name: "Omar Al-Fayed",
     role: "Cloud Engineer",
-    image: "/Author.png",
+    image: "/person3.jpeg",
   },
   {
     name: "Elena Rodriguez",
     role: "UX Researcher",
-    image: "/Author.png",
+    image: "/person4.jpeg",
   },
 ];
 

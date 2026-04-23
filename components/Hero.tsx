@@ -40,6 +40,7 @@ function AnimatedPhrase() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: i * 0.03 }} // Reduced from 0.05s
+            className="text-2xl sm:text-6xl  sm:leading-[1.1]"
           >
             {char === " " ? "\u00A0" : char}
           </motion.span>
@@ -55,7 +56,7 @@ export default function Hero() {
       {/* Background Image - Mobile (increased parallax for depth) */}
       <ParallaxImage offset={120} direction="up" className="absolute inset-0 z-0 block md:hidden">
         <Image
-          src="/assets/MobileHeroV2.png"
+          src="/MobileHeroV2.png"
           alt="Hero Background"
           fill
           className="object-cover object-right"
@@ -68,7 +69,7 @@ export default function Hero() {
         <ParallaxImage offset={120} direction="up" className="absolute inset-0 z-0">
           <div className="relative w-full h-full">
             <Image
-              src="/assets/hero1.png"
+              src="/hero1.png"
               alt="Hero Base layer"
               fill
               className="object-cover object-center"
@@ -81,7 +82,7 @@ export default function Hero() {
               className="absolute right-0 bottom-0 w-[70%] h-[70%] opacity-90"
             >
               <Image
-                src="/assets/hero2r.png"
+                src="/hero2r.png"
                 alt="Hero Detail layer"
                 fill
                 className="object-contain object-right-bottom"
@@ -154,7 +155,7 @@ export default function Hero() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-background font-bold rounded-xl shadow-[0_0_30px_rgba(251,221,8,0.3)] group flex items-center justify-center gap-2 text-xs sm:text-base w-full sm:w-auto"
+                  className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-background font-bold rounded-full shadow-[0_0_30px_rgba(251,221,8,0.3)] group flex items-center justify-center gap-2 text-xs sm:text-base w-full sm:w-auto"
                 >
                   START FREE TRIAL
                   <span className="group-hover:translate-x-1 transition-transform">
@@ -166,7 +167,7 @@ export default function Hero() {
                 <motion.button
                   whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 sm:px-8 py-3 sm:py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl transition-colors flex items-center justify-center gap-2 text-xs sm:text-base w-full sm:w-auto"
+                  className="px-6 sm:px-8 py-3 sm:py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full transition-colors flex items-center justify-center gap-2 text-xs sm:text-base w-full sm:w-auto"
                 >
                   <span className="w-2 h-2 rounded-full bg-white/20" />
                   Schedule Demo
@@ -188,7 +189,7 @@ export default function Hero() {
                   <h3 className="text-xl sm:text-3xl md:text-4xl font-black text-white mb-1">
                     {stat.value}
                   </h3>
-                  <p className="text-gray-500 text-[10px] sm:text-xs uppercase tracking-widest font-bold">
+                  <p className="text-gray text-[10px] sm:text-xs uppercase tracking-widest font-bold">
                     {stat.label}
                   </p>
                 </motion.div>

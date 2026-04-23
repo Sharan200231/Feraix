@@ -8,22 +8,22 @@ const team = [
   {
     name: "David Chen",
     role: "Lead Architect",
-    image: "/assets/Author.png",
+    image: "/Author.png",
   },
   {
     name: "Sarah Jenkins",
     role: "Art Director",
-    image: "/assets/Author.png",
+    image: "/Author.png",
   },
   {
     name: "Omar Al-Fayed",
     role: "Cloud Engineer",
-    image: "/assets/Author.png",
+    image: "/Author.png",
   },
   {
     name: "Elena Rodriguez",
     role: "UX Researcher",
-    image: "/assets/Author.png",
+    image: "/Author.png",
   },
 ];
 
@@ -38,7 +38,7 @@ export default function TeamSection() {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/assets/bgDesign.jpg"
+          src="/bgDesign.jpg"
           alt="Background Design"
           fill
           className="object-cover"

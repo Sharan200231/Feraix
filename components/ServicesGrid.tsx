@@ -44,7 +44,7 @@ export default function ServicesGrid() {
             className="absolute inset-0 z-0"
           >
             <Image
-              src="/assets/serviceBg1V2jpg.jpg"
+              src="/serviceBg1V2jpg.jpg"
               alt="Services Background"
               fill
               className="object-cover opacity-60"

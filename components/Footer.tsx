@@ -13,7 +13,7 @@ export default function Footer() {
       {/* Background Image (boosted parallax depth) */}
       <ParallaxImage offset={120} className="absolute inset-0 z-0">
         <Image
-          src="/assets/footer-bg.png"
+          src="/footer-bg.png"
           alt="Footer Background"
           fill
           className="object-cover opacity-20"
@@ -33,7 +33,7 @@ export default function Footer() {
           <motion.div variants={fadeInUp} className="space-y-6">
             <Link href="/" className="flex items-center">
               <Image 
-                src="/assets/TransLogo.png" 
+                src="/TransLogo.png" 
                 alt="Feraix Logo" 
                 width={150} 
                 height={50} 
@@ -114,7 +114,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex gap-4 text-sm">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
-                <span className="text-white">2703, Damac Park tower B, Dubai, UAE</span>
+                <span className="text-white">2703, Damac Park Tower DIFC, Dubai, UAE</span>
               </li>
               <li className="flex gap-4 text-sm">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0" />

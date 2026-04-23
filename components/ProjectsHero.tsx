@@ -15,7 +15,7 @@ export default function ProjectsHero() {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/assets/project-hero.png"
+          src="/project-hero.png"
           alt="Project Hero"
           fill
           className="object-cover opacity-60"

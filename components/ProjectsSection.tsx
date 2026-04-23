@@ -15,7 +15,7 @@ const projects = [
     category: "Dashboard",
     tag: "SaaS",
     description: "A comprehensive financial dashboard providing real-time analytics, predictive modeling, and secure transaction monitoring for global banking enterprises.",
-    image: "/assets/hero.png",
+    image: "/hero.png",
     accent: "text-primary"
   },
   {
@@ -25,7 +25,7 @@ const projects = [
     category: "Healthcare",
     tag: "Flutter",
     description: "An AI-powered telemedicine application connecting patients with healthcare providers, featuring secure video consultations and real-time health tracking.",
-    image: "/assets/aboutV1.png",
+    image: "/aboutV1.png",
     accent: "text-accent-blue"
   },
   {
@@ -35,7 +35,7 @@ const projects = [
     category: "Logistics",
     tag: "Next.js",
     description: "A high-performance corporate website and client portal for an international logistics firm, optimizing supply chain visibility and automated operations.",
-    image: "/assets/whyus.png",
+    image: "/whyus.png",
     accent: "text-accent-purple"
   },
   {
@@ -45,7 +45,7 @@ const projects = [
     category: "Business Platform",
     tag: "Design",
     description: "A cloud-based HR platform streamlining recruitment, onboarding, and employee performance tracking with integrated AI analytics and reporting.",
-    image: "/assets/hero.png",
+    image: "/hero.png",
     accent: "text-primary"
   },
 ];
@@ -203,8 +203,7 @@ export default function ProjectsSection() {
                   >
                     {currentProject.description}
                   </motion.p>
-                  
-                  <motion.div 
+                  {/*                  <motion.div 
                     variants={fadeInUp}
                     className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6"
                   >
@@ -228,7 +227,8 @@ export default function ProjectsSection() {
                         CASE STUDY
                       </motion.button>
                     </Link>
-                  </motion.div>
+                  </motion.div> */}
+
                 </motion.div>
               )}
             </AnimatePresence>  

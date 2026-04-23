@@ -34,7 +34,7 @@ export default function ContactMap() {
               className="absolute inset-0"
             >
               <Image
-                src="/assets/DubaiCity.png"
+                src="/DubaiCity.png"
                 alt="Map Background"
                 fill
                 className="object-cover mix-blend-luminosity"

@@ -41,7 +41,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center group">
             <Image 
-              src="/assets/TransLogo.png" 
+              src="/TransLogo.png" 
               alt="Feraix Logo" 
               width={120} 
               height={40} 
@@ -104,7 +104,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between mb-12">
             <Link href="/" onClick={() => setMobileOpen(false)}>
               <Image 
-                src="/assets/logo.jpeg" 
+                src="/logo.jpeg" 
                 alt="Feraix Logo" 
                 width={100} 
                 height={32} 
@@ -137,7 +137,7 @@ export default function Navbar() {
 
           <div className="mt-8 pt-8 border-t border-white/5">
             <Link href="/contact#contact-form" onClick={() => setMobileOpen(false)}>
-              <button className="w-full px-6 py-3 bg-primary text-black font-bold rounded-2xl hover:bg-primary/90 transition-all text-base shadow-[0_0_20px_rgba(251,221,8,0.2)]">
+              <button className="w-full px-6 py-3 bg-primary text-black font-bold rounded-full hover:bg-primary/90 transition-all text-base shadow-[0_0_20px_rgba(251,221,8,0.2)]">
                 Get Started
               </button>
             </Link>

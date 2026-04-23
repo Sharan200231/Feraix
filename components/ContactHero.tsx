@@ -16,7 +16,7 @@ export default function ContactHero() {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/assets/project-hero.png"
+          src="/project-hero.png"
           alt="Contact Hero"
           fill
           className="object-cover opacity-60"

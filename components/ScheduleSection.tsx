@@ -85,7 +85,7 @@ export default function ScheduleSection() {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={() => setSelectedDate(date)}
-                        className={`aspect-square flex items-center justify-center rounded-xl sm:rounded-2xl text-xs sm:text-base font-bold transition-all relative
+                        className={`aspect-square flex items-center justify-center rounded-full text-xs sm:text-base font-bold transition-all relative
                           ${isSelected ? "bg-primary text-black" : "bg-white/5 text-white hover:bg-white/10"}
                           ${isToday && !isSelected ? "border border-primary/40" : ""}
                         `}
@@ -121,7 +121,7 @@ export default function ScheduleSection() {
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                           onClick={() => setSelectedTime(time)}
-                          className={`py-3 sm:py-4 px-3 sm:px-4 rounded-xl sm:rounded-2xl text-[10px] sm:text-sm font-bold transition-all border
+                          className={`py-3 sm:py-4 px-3 sm:px-4 rounded-full text-[10px] sm:text-sm font-bold transition-all border
                             ${isSelected 
                               ? "bg-primary text-black border-primary shadow-[0_0_15px_rgba(251,221,8,0.3)]" 
                               : "bg-white/5 text-gray-400 border-white/5 hover:border-white/20 hover:text-white"}
@@ -160,7 +160,7 @@ export default function ScheduleSection() {
                       whileTap={{ scale: 0.98 }}
                       onClick={handleBooking}
                       disabled={!selectedDate || !selectedTime || isBooked}
-                      className={`w-full py-4 sm:py-5 rounded-xl sm:rounded-2xl font-black text-sm sm:text-base tracking-widest uppercase transition-all flex items-center justify-center gap-3 shadow-2xl
+                      className={`w-full py-4 sm:py-5 rounded-full font-black text-sm sm:text-base tracking-widest uppercase transition-all flex items-center justify-center gap-3 shadow-2xl
                         ${!selectedDate || !selectedTime || isBooked
                           ? "bg-white/5 text-gray-600 cursor-not-allowed border border-white/5 shadow-none"
                           : "bg-primary text-black hover:shadow-[0_0_30px_rgba(251,221,8,0.4)]"
@@ -208,7 +208,7 @@ export default function ScheduleSection() {
               </p>
               <button
                 onClick={() => setIsBooked(false)}
-                className="w-full py-4 sm:py-5 bg-white/5 border border-white/10 text-white font-bold rounded-2xl hover:bg-white/10 transition-all text-sm sm:text-base"
+                className="w-full py-4 sm:py-5 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all text-sm sm:text-base"
               >
                 Close Window
               </button>

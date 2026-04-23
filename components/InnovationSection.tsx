@@ -23,7 +23,7 @@ export default function InnovationSection() {
           >
             <div className="relative z-10 rounded-[24px] sm:rounded-[40px] overflow-hidden border border-white/5 shadow-2xl">
               <Image
-                src="/assets/Innovation.png"
+                src="/Innovation.png"
                 alt="Innovation"
                 width={600}
                 height={600}

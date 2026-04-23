@@ -3,15 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ShieldCheck, Users, Rocket, Headphones, Calendar, ChevronRight } from "lucide-react";
 import { fadeInUp, staggerContainer, fadeIn } from "@/constants/animations";
 import { ParallaxImage } from "./ParallaxSection";
 
 export default function WhyUs() {
   const listItems = [
-    { text: "Tailored Solutions for Every Business", icon: "✔️" },
-    { text: "Expert Team with Proven Experience", icon: "👥" },
-    { text: "Agile & Scalable Development Process", icon: "🚀" },
-    { text: "24/7 Support & Long-term Partnership", icon: "🎧" },
+    { text: "Tailored Solutions for Every Business", icon: ShieldCheck },
+    { text: "Expert Team with Proven Experience", icon: Users },
+    { text: "Agile & Scalable Development Process", icon: Rocket },
+    { text: "24/7 Support & Long-term Partnership", icon: Headphones },
   ];
 
   const statCards = [
@@ -50,7 +51,7 @@ export default function WhyUs() {
           {/* Background Image (boosted parallax depth) */}
           <ParallaxImage offset={130} className="absolute inset-0 z-0">
             <Image
-              src="/assets/whyus.png"
+              src="/whyus.png"
               alt="Why Choose Feraix"
               fill
               className="object-cover"
@@ -80,7 +81,7 @@ export default function WhyUs() {
                     className="flex items-center gap-4 p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all group backdrop-blur-md cursor-pointer"
                   >
                     <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background transition-all duration-300">
-                      <span className="text-xl">{item.icon}</span>
+                      <item.icon className="w-5 h-5" />
                     </div>
                     <span className="text-gray-200 font-medium text-sm sm:text-base md:text-lg">{item.text}</span>
                   </motion.div>
@@ -95,7 +96,7 @@ export default function WhyUs() {
                     className="px-6 sm:px-10 py-3.5 sm:py-4 bg-primary text-background font-bold rounded-full transition-all shadow-[0_0_30px_rgba(251,221,8,0.3)] flex items-center justify-center gap-2 text-base sm:text-lg w-full sm:w-auto"
                   >
                     START FREE TRIAL
-                    <span className="text-xl">›</span>
+                    <ChevronRight className="w-5 h-5" />
                   </motion.button>
                 </Link>
                 <Link href="/contact#schedule">
@@ -104,9 +105,9 @@ export default function WhyUs() {
                     whileTap={{ scale: 0.95 }}
                     className="px-6 sm:px-10 py-3.5 sm:py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all flex items-center justify-center gap-2 backdrop-blur-md text-base sm:text-lg w-full sm:w-auto"
                   >
-                    <span className="w-5 h-5 opacity-50">📅</span>
+                    <Calendar className="w-5 h-5 opacity-70" />
                     Schedule Demo
-                    <span className="text-xl opacity-50">›</span>
+                    <ChevronRight className="w-5 h-5 opacity-50" />
                   </motion.button>
                 </Link>
               </motion.div>

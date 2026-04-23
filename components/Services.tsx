@@ -15,7 +15,7 @@ const services = [
     icon: <Code className="w-12 h-12" />,
     color: "from-blue-500/20 to-cyan-500/20",
     accent: "text-blue-400",
-    image: "/assets/Web-development.png" // Using existing assets for placeholder
+    image: "/Web-development.png" // Using existing assets for placeholder
   },
   {
     id: "02",
@@ -25,7 +25,7 @@ const services = [
     icon: <Cpu className="w-12 h-12" />,
     color: "from-purple-500/20 to-pink-500/20",
     accent: "text-purple-400",
-    image: "/assets/sofrwareDevelopment.png"
+    image: "/sofrwareDevelopment.jpeg"
   },
   {
     id: "03",
@@ -35,7 +35,7 @@ const services = [
     icon: <Lightbulb className="w-12 h-12" />,
     color: "from-amber-500/20 to-orange-500/20",
     accent: "text-amber-400",
-    image: "/assets/It-consult.png"
+    image: "/It-consult.jpeg"
   },
   {
     id: "04",
@@ -45,7 +45,7 @@ const services = [
     icon: <Cloud className="w-12 h-12" />,
     color: "from-cyan-500/20 to-teal-500/20",
     accent: "text-cyan-400",
-    image: "/assets/cloude.png"
+    image: "/cloude.jpeg"
   },
 ];
 
@@ -71,7 +71,7 @@ export default function Services() {
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-24">
           
           {/* Left Side: Service Details (Top on Mobile) */}
-          <div className="w-full lg:w-1/2 text-center lg:text-left min-h-[480px] sm:min-h-[400px] flex flex-col justify-center">
+          <div className="w-full lg:w-1/2 text-center lg:text-left min-h-[480px] lg:min-h-[550px] flex flex-col justify-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedIndex}
@@ -98,23 +98,7 @@ export default function Services() {
                   {activeService.description}
                 </p>
 
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4">
-                  <motion.button
-                    whileHover={{ scale: 1.05, x: 5 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-black font-bold rounded-xl flex items-center gap-2 shadow-[0_0_30px_rgba(251,221,8,0.3)] text-xs sm:text-base"
-                  >
-                    Get Started Now
-                    <ArrowRight size={18} />
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-6 sm:px-8 py-3 sm:py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-xs sm:text-base"
-                  >
-                    View Pricing
-                  </motion.button>
-                </div>
+        
               </motion.div>
             </AnimatePresence>
           </div>
@@ -147,7 +131,7 @@ export default function Services() {
         </div>
 
         {/* Bottom Switcher: Compact Nav Tabs */}
-        <div className="mt-4 sm:mt-12 flex flex-nowrap lg:flex-wrap items-center justify-start sm:justify-center gap-2 sm:gap-6 overflow-x-auto no-scrollbar pt-4 pb-6 sm:pb-0 px-4 sm:px-0">
+        <div className=" flex flex-nowrap lg:flex-wrap items-center justify-start sm:justify-center gap-2 sm:gap-6 overflow-x-auto no-scrollbar pt-4 pb-6 sm:pb-0 px-4 sm:px-0">
           {services.map((service, index) => (
             <motion.button
               key={service.id}
@@ -156,7 +140,7 @@ export default function Services() {
               onTouchStart={() => setSelectedIndex(index)}
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.95 }}
-              className={`group relative p-3 sm:p-6 rounded-xl sm:rounded-2xl border transition-all duration-300 flex flex-col items-center gap-2 sm:gap-3 min-w-[100px] sm:min-w-[140px] flex-shrink-0 ${
+              className={`group relative p-3 sm:p-6 rounded-xl sm:rounded-2xl border transition-all duration-300 flex flex-col items-center gap-2 sm:gap-3 min-w-[100px] sm:min-w-[250px] flex-shrink-0 ${
                 selectedIndex === index
                   ? "bg-white/10 border-primary border shadow-[0_0_20px_rgba(251,221,8,0.2)]"
                   : "bg-white/5 border-white/10 grayscale hover:grayscale-0 hover:border-white/30"

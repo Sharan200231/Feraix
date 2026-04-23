@@ -19,21 +19,21 @@ export default function CompanyStory() {
           {/* Background image with parallax depth */}
           <ParallaxImage offset={50} className="absolute inset-0">
             <Image
-              src="/assets/Company Overview Sectionv1.png"  
+              src="/Company Overview Sectionv1.png"  
               alt="Company Story"
               fill
               className="object-cover"
             />
           </ParallaxImage>
           {/* Overlay with Text */}
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center bg-black/40">
             <motion.div 
               variants={staggerContainer}
               className="text-center max-w-4xl px-4 sm:px-6"
             >
               <motion.p variants={fadeInUp} className="text-primary font-bold tracking-[0.2em] text-[10px] sm:text-xs uppercase mb-3 sm:mb-4">Our Story</motion.p>
               <motion.h2 variants={fadeInUp} className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-8">A Technology-Driven Company</motion.h2>
-              <motion.p variants={fadeInUp} className="text-gray-300 text-sm sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto hidden sm:block">
+              <motion.p variants={fadeInUp} className="text-white text-sm sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto hidden sm:block">
                 Feraix is committed to delivering high-quality digital solutions that empower businesses to thrive in the modern technological landscape. We combine innovative thinking with deep technical expertise to build platforms that drive real business impact.
               </motion.p>
             </motion.div>

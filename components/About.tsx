@@ -19,7 +19,7 @@ export default function About() {
           {/* Background Image - Mobile (boosted parallax depth) */}
           <ParallaxImage offset={100} className="absolute inset-0 z-0 block md:hidden">
             <Image
-              src="/assets/mobileAbout.png"
+              src="/mobileAbout.png"
               alt="About Feraix"
               fill
               className="object-cover"
@@ -33,7 +33,7 @@ export default function About() {
           {/* Background Image - Tablet & Desktop (boosted parallax depth) */}
           <ParallaxImage offset={140} className="absolute inset-0 z-0 hidden md:block">
             <Image
-              src="/assets/aboutV1.png"
+              src="/aboutV1.png"
               alt="About Feraix"
               fill
               className="object-cover"

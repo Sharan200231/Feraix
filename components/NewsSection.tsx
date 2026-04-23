@@ -20,21 +20,21 @@ const articles = [
     title: "Building Resilient Multi-Cloud Architectures",
     category: "Cloud Solutions",
     description: "Strategies for ensuring high availability and disaster recovery across multiple cloud providers without vendor lock-in.",
-    image: "/assets/Cloud Architecture.png",
+    image: "/Cloud Architecture.png",
     date: "Apr 18, 2026",
   },
   {
     title: "Micro-Frontends: Scaling Web Applications",
     category: "Software Dev",
     description: "Breaking down large monolithic frontends into smaller, manageable pieces to improve team velocity and deployment cycles.",
-    image: "/assets/Software Dev.png",
+    image: "/Software Dev.png",
     date: "Apr 15, 2026",
   },
   {
     title: "Securing IoT Networks in Enterprise Environments",
     category: "Technology",
     description: "Best practices for implementing zero-trust architectures for IoT devices within complex business network ecosystems.",
-    image: "/assets/IoT Tech.png",
+    image: "/IoT Tech.png",
     date: "Apr 11, 2026",
   },
 ];
@@ -86,7 +86,7 @@ export default function NewsSection() {
             {/* Image Area */}
             <div className="relative lg:w-1/2 h-[250px] sm:h-[400px] lg:h-auto overflow-hidden">
               <Image
-                src="/assets/AI Technology.png"
+                src="/AI Technology.png"
                 alt="Featured Post"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -117,7 +117,7 @@ export default function NewsSection() {
                 <div className="flex items-center gap-4">
                   <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/10">
                     <Image
-                      src="/assets/Author.png"
+                      src="/Author.png"
                       alt="David Chen"
                       fill
                       className="object-cover"

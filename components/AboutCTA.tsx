@@ -17,7 +17,7 @@ export default function AboutCTA() {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/assets/Dubai city lights at night, futuristic architecture, professional wide angle photography.png"
+          src="/Dubai city lights at night, futuristic architecture, professional wide angle photography.png"
           alt="CTA Background"
           fill
           className="object-cover"

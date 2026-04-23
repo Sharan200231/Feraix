@@ -40,7 +40,7 @@ export default function WhyChooseServices() {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/assets/serviceBg2.jpg"
+          src="/serviceBg2.jpg"
           alt="Rocky Background"
           fill
           className="object-cover"

@@ -13,7 +13,7 @@ export default function ServicesHero() {
       {/* Full Background Scene (parallax depth) */}
       <ParallaxImage offset={50} className="absolute inset-0 z-0">
         <Image
-          src="/assets/serivceHero.png"
+          src="/serivceHero.png"
           alt="Service Background"
           fill
           className="object-cover object-right sm:object-center"

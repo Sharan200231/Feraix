@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fadeInUp, staggerContainer, fadeIn } from "@/constants/animations";
+import { fadeInUp, staggerContainer, } from "@/constants/animations";
 import { ParallaxImage, ParallaxGlow } from "./ParallaxSection";
 
 export default function About() {
@@ -53,10 +53,10 @@ export default function About() {
             <motion.div variants={fadeInUp} className="mb-4 md:mb-8">
               <h3 className="text-white text-lg md:text-2xl font-medium flex items-center gap-2">
                 <span className="relative">
-                  Who
+                  About
                   <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-primary" />
                 </span>
-                <span>We Are</span>
+                <span> Us</span>
               </h3>
             </motion.div>
 

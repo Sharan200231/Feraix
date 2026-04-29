@@ -3,7 +3,7 @@ import ContactHero from "@/components/ContactHero";
 import ContactFormSection from "@/components/ContactFormSection";
 import ScheduleSection from "@/components/ScheduleSection";
 import ContactMap from "@/components/ContactMap";
-import ContactCTA from "@/components/ContactCTA";
+
 import Footer from "@/components/Footer";
 
 export const metadata = {
@@ -19,7 +19,7 @@ export default function ContactPage() {
       <ContactFormSection />
       <ScheduleSection />
       <ContactMap />
-      <ContactCTA />
+      {/* <ContactCTA /> */}
       <Footer />
     </main>
   );

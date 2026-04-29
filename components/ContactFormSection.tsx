@@ -1,11 +1,74 @@
 "use client";
 
-import { MapPin, Mail, Phone, Clock, Send } from "lucide-react";
+import { useState } from "react";
+import { MapPin, Mail, Phone, Clock, Send, CheckCircle2, Loader2 } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/constants/animations";
 
 export default function ContactFormSection() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    company: "",
+    service: "",
+    otherService: "",
+    message: "",
+    privacy: false
+  });
+
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.firstName.trim()) newErrors.firstName = "First name is required";
+    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Invalid email address";
+    }
+    if (!formData.service || formData.service === "Select a service...") {
+      newErrors.service = "Please select a service";
+    }
+    if (formData.service === "Other" && !formData.otherService.trim()) {
+      newErrors.otherService = "Please specify the service";
+    }
+    if (!formData.message.trim()) newErrors.message = "Message is required";
+    if (!formData.privacy) newErrors.privacy = "Agreement is required";
+    
+    return newErrors;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const newErrors = validate();
+    setErrors(newErrors);
+    
+    if (Object.keys(newErrors).length === 0) {
+      setIsSubmitting(true);
+      // Simulate API call
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setIsSuccess(true);
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          company: "",
+          service: "",
+          otherService: "",
+          message: "",
+          privacy: false
+        });
+        setTimeout(() => setIsSuccess(false), 5000);
+      }, 2000);
+    }
+  };
+
   return (
     <section id="contact-form" className="py-12 sm:py-24 bg-background selection:bg-primary selection:text-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
@@ -24,7 +87,7 @@ export default function ContactFormSection() {
               
               <motion.div variants={staggerContainer} className="space-y-8">
                 {[
-                  { icon: MapPin, title: "Office Location", content: "Feraix Technology HQ, Building 4, Dubai Internet City, PO Box 12345, Dubai, UAE" },
+                  { icon: MapPin, title: "Office Location", content: "Feraix Global Technologies, Building 4, Dubai Internet City, PO Box 12345, Dubai, UAE" },
                   { icon: Mail, title: "Email Us", content: "General: hello@feraix.com Support: support@feraix.com" },
                   { icon: Phone, title: "Call Us", content: "Main: +971 4 123 4567 Sales: +971 4 123 4568" },
                   { icon: Clock, title: "Business Hours", content: "Monday - Friday: 9:00 AM - 6:00 PM (GST) Saturday - Sunday: Closed" }
@@ -70,64 +133,170 @@ export default function ContactFormSection() {
 
           {/* Contact Form */}
           <motion.div variants={fadeInUp} className="lg:col-span-7">
-            <div className="p-6 sm:p-10 lg:p-12 rounded-[24px] sm:rounded-[40px] bg-[#0B0F1A] border border-white/5 h-full">
+            <div className="p-6 sm:p-10 lg:p-12 rounded-[24px] sm:rounded-[40px] bg-[#0B0F1A] border border-white/5 h-full relative overflow-hidden">
+              <AnimatePresence>
+                {isSuccess && (
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    className="absolute inset-0 z-50 bg-[#0B0F1A] flex flex-col items-center justify-center text-center p-8"
+                  >
+                    <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6 border border-primary/20">
+                      <CheckCircle2 size={40} className="text-primary" />
+                    </div>
+                    <h3 className="text-3xl font-bold text-white mb-4">Message Sent!</h3>
+                    <p className="text-gray-400 max-w-sm">Thank you for reaching out. Our team will get back to you shortly.</p>
+                    <button 
+                      onClick={() => setIsSuccess(false)}
+                      className="mt-8 text-primary font-bold hover:underline"
+                    >
+                      Send another message
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Send a Message</h2>
               <p className="text-gray-500 text-sm mb-10">Fill out the form below and our team will get back to you within 24 hours.</p>
               
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <motion.div variants={staggerContainer} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <motion.div variants={fadeInUp} className="space-y-2">
                       <label className="text-xs font-bold text-gray-500 uppercase tracking-widest pl-1">First Name *</label>
-                      <input type="text" placeholder="John" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white text-sm focus:outline-none focus:border-primary/50 transition-colors" />
+                      <input 
+                        type="text" 
+                        placeholder="John" 
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({...formData, firstName: e.target.value})}
+                        className={`w-full bg-white/5 border ${errors.firstName ? 'border-red-500/50' : 'border-white/10'} rounded-2xl px-6 py-4 text-white text-sm focus:outline-none focus:border-primary/50 transition-colors`} 
+                      />
+                      {errors.firstName && <p className="text-[10px] text-red-500 pl-1">{errors.firstName}</p>}
                     </motion.div>
                     <motion.div variants={fadeInUp} className="space-y-2">
                       <label className="text-xs font-bold text-gray-500 uppercase tracking-widest pl-1">Last Name *</label>
-                      <input type="text" placeholder="Doe" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white text-sm focus:outline-none focus:border-primary/50 transition-colors" />
+                      <input 
+                        type="text" 
+                        placeholder="Doe" 
+                        value={formData.lastName}
+                        onChange={(e) => setFormData({...formData, lastName: e.target.value})}
+                        className={`w-full bg-white/5 border ${errors.lastName ? 'border-red-500/50' : 'border-white/10'} rounded-2xl px-6 py-4 text-white text-sm focus:outline-none focus:border-primary/50 transition-colors`} 
+                      />
+                      {errors.lastName && <p className="text-[10px] text-red-500 pl-1">{errors.lastName}</p>}
                     </motion.div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <motion.div variants={fadeInUp} className="space-y-2">
                       <label className="text-xs font-bold text-gray-500 uppercase tracking-widest pl-1">Work Email *</label>
-                      <input type="email" placeholder="john@company.com" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white text-sm focus:outline-none focus:border-primary/50 transition-colors" />
+                      <input 
+                        type="email" 
+                        placeholder="john@company.com" 
+                        value={formData.email}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                        className={`w-full bg-white/5 border ${errors.email ? 'border-red-500/50' : 'border-white/10'} rounded-2xl px-6 py-4 text-white text-sm focus:outline-none focus:border-primary/50 transition-colors`} 
+                      />
+                      {errors.email && <p className="text-[10px] text-red-500 pl-1">{errors.email}</p>}
                     </motion.div>
                     <motion.div variants={fadeInUp} className="space-y-2">
                       <label className="text-xs font-bold text-gray-500 uppercase tracking-widest pl-1">Company Name</label>
-                      <input type="text" placeholder="Your Company" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white text-sm focus:outline-none focus:border-primary/50 transition-colors" />
+                      <input 
+                        type="text" 
+                        placeholder="Your Company" 
+                        value={formData.company}
+                        onChange={(e) => setFormData({...formData, company: e.target.value})}
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white text-sm focus:outline-none focus:border-primary/50 transition-colors" 
+                      />
                     </motion.div>
                   </div>
 
-                  <motion.div variants={fadeInUp} className="space-y-2">
-                    <label className="text-xs font-bold text-gray-500 uppercase tracking-widest pl-1">Service of Interest *</label>
-                    <select className="w-full bg-[#0B0F1A] border border-white/10 rounded-2xl px-6 py-4 text-gray-400 text-sm focus:outline-none focus:border-primary/50 transition-colors appearance-none cursor-pointer">
-                      <option>Select a service...</option>
-                      <option>Web Development</option>
-                      <option>Mobile Apps</option>
-                      <option>AI Solutions</option>
-                      <option>Cloud Infrastructure</option>
-                    </select>
-                  </motion.div>
+                  <div className="grid grid-cols-1 gap-6">
+                    <motion.div variants={fadeInUp} className="space-y-2">
+                      <label className="text-xs font-bold text-gray-500 uppercase tracking-widest pl-1">Service of Interest *</label>
+                      <select 
+                        value={formData.service}
+                        onChange={(e) => setFormData({...formData, service: e.target.value})}
+                        className={`w-full bg-[#0B0F1A] border ${errors.service ? 'border-red-500/50' : 'border-white/10'} rounded-2xl px-6 py-4 text-gray-400 text-sm focus:outline-none focus:border-primary/50 transition-colors appearance-none cursor-pointer`}
+                      >
+                        <option>Select a service...</option>
+                        <option>Web Development</option>
+                        <option>Mobile Apps</option>
+                        <option>AI Solutions</option>
+                        <option>Cloud Infrastructure</option>
+                        <option>Other</option>
+                      </select>
+                      {errors.service && <p className="text-[10px] text-red-500 pl-1">{errors.service}</p>}
+                    </motion.div>
+
+                    <AnimatePresence>
+                      {formData.service === "Other" && (
+                        <motion.div 
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="space-y-2 overflow-hidden"
+                        >
+                          <label className="text-xs font-bold text-gray-500 uppercase tracking-widest pl-1">Specify Service *</label>
+                          <input 
+                            type="text" 
+                            placeholder="Please specify your service needs" 
+                            value={formData.otherService}
+                            onChange={(e) => setFormData({...formData, otherService: e.target.value})}
+                            className={`w-full bg-white/5 border ${errors.otherService ? 'border-red-500/50' : 'border-white/10'} rounded-2xl px-6 py-4 text-white text-sm focus:outline-none focus:border-primary/50 transition-colors`} 
+                          />
+                          {errors.otherService && <p className="text-[10px] text-red-500 pl-1">{errors.otherService}</p>}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
 
                   <motion.div variants={fadeInUp} className="space-y-2">
                     <label className="text-xs font-bold text-gray-500 uppercase tracking-widest pl-1">Your Message *</label>
-                    <textarea rows={4} placeholder="Tell us about your project or inquiry..." className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white text-sm focus:outline-none focus:border-primary/50 transition-colors resize-none"></textarea>
+                    <textarea 
+                      rows={4} 
+                      placeholder="Tell us about your project or inquiry..." 
+                      value={formData.message}
+                      onChange={(e) => setFormData({...formData, message: e.target.value})}
+                      className={`w-full bg-white/5 border ${errors.message ? 'border-red-500/50' : 'border-white/10'} rounded-2xl px-6 py-4 text-white text-sm focus:outline-none focus:border-primary/50 transition-colors resize-none`}
+                    ></textarea>
+                    {errors.message && <p className="text-[10px] text-red-500 pl-1">{errors.message}</p>}
                   </motion.div>
 
-                  <motion.div variants={fadeInUp} className="flex items-center gap-3">
-                    <input type="checkbox" id="privacy" className="w-4 h-4 rounded border-white/10 bg-white/5 text-primary focus:ring-primary/50" />
-                    <label htmlFor="privacy" className="text-xs text-gray-500">I agree to the <Link href="#" className="text-primary hover:underline transition-all">Privacy Policy</Link> and consent to Feraix processing my personal data.</label>
+                  <motion.div variants={fadeInUp} className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <input 
+                        type="checkbox" 
+                        id="privacy" 
+                        checked={formData.privacy}
+                        onChange={(e) => setFormData({...formData, privacy: e.target.checked})}
+                        className={`mt-1 w-4 h-4 rounded border ${errors.privacy ? 'border-red-500/50' : 'border-white/10'} bg-white/5 text-primary focus:ring-primary/50`} 
+                      />
+                      <label htmlFor="privacy" className="text-xs text-gray-500">I agree to the <Link href="#" className="text-primary hover:underline transition-all">Privacy Policy</Link> and consent to Feraix processing my personal data.</label>
+                    </div>
+                    {errors.privacy && <p className="text-[10px] text-red-500 pl-1">{errors.privacy}</p>}
                   </motion.div>
 
                   <motion.button 
                     variants={fadeInUp}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
+                    whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
+                    disabled={isSubmitting}
                     type="submit" 
-                    className="w-fit flex items-center gap-3 bg-primary text-black font-bold rounded-full px-10 py-4 shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all"
+                    className={`w-fit flex items-center gap-3 font-bold rounded-full px-10 py-4 transition-all shadow-[0_0_15px_rgba(59,130,246,0.3)] 
+                      ${isSubmitting ? 'bg-primary/50 text-black/50 cursor-not-allowed' : 'bg-primary text-black'}`}
                   >
-                    Send Message
-                    <Send className="w-4 h-4" />
+                    {isSubmitting ? (
+                      <>
+                        Processing...
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <Send className="w-4 h-4" />
+                      </>
+                    )}
                   </motion.button>
                 </motion.div>
               </form>

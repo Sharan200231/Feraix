@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Users, BarChart3, Clock, Trophy } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, fadeIn } from "@/constants/animations";
+import Link from "next/link";
 
 const stats = [
   {
@@ -56,22 +57,23 @@ export default function WhyChooseServices() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainer}
           >
-            <motion.p variants={fadeInUp} className="text-gray-400 font-bold tracking-[0.2em] text-xs uppercase mb-4">Why Choose Feraix</motion.p>
             <motion.h2 variants={fadeInUp} className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8">
               Why Choose <span className="text-primary">Feraix?</span>
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-gray-400 text-base sm:text-lg leading-relaxed mb-8 sm:mb-10 max-w-lg">
               Get a free consultation with our experts today and start your journey towards digital transformation and business success.
             </motion.p>
+            <Link href="/about"> 
             <motion.button 
               variants={fadeInUp}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 sm:px-10 py-3 sm:py-4 bg-primary text-black font-bold rounded-full transition-all shadow-[0_0_15px_rgba(251,221,8,0.4)] flex items-center gap-2 text-sm sm:text-base"
             >
-              Get Your Free Consultation
+             About Us
               <span className="text-xl">→</span>
-            </motion.button>
+            </motion.button>  
+            </Link>
           </motion.div>
 
           <motion.div 

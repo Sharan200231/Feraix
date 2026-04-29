@@ -41,27 +41,6 @@ export default function ContactMap() {
               />
             </motion.div>
 
-            {/* Glowing Pointer */}
-            <motion.div 
-              initial={{ y: -20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.6, type: "spring", stiffness: 100 }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            >
-                <div className="relative">
-                    <div className="w-6 h-6 bg-primary rounded-full animate-ping absolute inset-0 opacity-50"></div>
-                    <div className="w-6 h-6 bg-primary rounded-full relative z-10 border-4 border-background shadow-[0_0_20px_rgba(59,130,246,0.8)]"></div>
-                    
-                    <motion.div 
-                      initial={{ scale: 0.8, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
-                      transition={{ delay: 1.2, duration: 0.4 }}
-                      className="absolute top-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-background/80 backdrop-blur-md border border-white/10 px-4 py-2 rounded-xl"
-                    >
-                        <p className="text-white font-bold text-xs uppercase tracking-widest">Feraix Technology HQ</p>
-                    </motion.div>
-                </div>
-            </motion.div>
           </div>
           
           <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background/40 to-transparent"></div>

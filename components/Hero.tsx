@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { fadeInUp, staggerContainer, fadeIn, slideInLeft, slideInRight } from "@/constants/animations";
+import {  staggerContainer , slideInLeft, slideInRight } from "@/constants/animations";
 import { ParallaxImage, ParallaxGlow } from "./ParallaxSection";
 
 const phrases = [

@@ -64,9 +64,9 @@ export default function WhyUs() {
           <div className="relative z-10 px-4 sm:px-8 md:px-16 py-12 md:py-24 flex flex-col lg:flex-row items-center gap-12 md:gap-16">
             {/* Left Content */}
             <div className="flex-1">
-              <motion.div variants={fadeInUp} className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
+              {/* <motion.div variants={fadeInUp} className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
                 Why Choose Feraix
-              </motion.div>
+              </motion.div> */}
               <motion.h2 variants={fadeInUp} className="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-8 leading-[1.1]">
                 Why Businesses <br className="hidden sm:block" />
                 <span className="text-primary italic">Choose Us</span>

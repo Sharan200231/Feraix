@@ -4,7 +4,7 @@ import { MapPin, Mail, Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fadeInUp, staggerContainer, fadeIn } from "@/constants/animations";
+import { fadeInUp, staggerContainer, } from "@/constants/animations";
 import { ParallaxImage } from "./ParallaxSection";
 
 export default function Footer() {
@@ -45,7 +45,9 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-4">
               <Link
-                href="#"
+                href="https://x.com/Feraix"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition-all"
               >
                 <span className="sr-only">X</span>
@@ -54,7 +56,9 @@ export default function Footer() {
                 </svg>
               </Link>
               <Link
-                href="#"
+                href="https://www.linkedin.com/company/feraix"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition-all"
               >
                 <span className="sr-only">LinkedIn</span>
@@ -63,7 +67,9 @@ export default function Footer() {
                 </svg>
               </Link>
               <Link
-                href="#"
+                href="https://www.instagram.com/feraix_official"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition-all"
               >
                 <span className="sr-only">Instagram</span>
@@ -113,12 +119,18 @@ export default function Footer() {
             <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-sm">Contact</h4>
             <ul className="space-y-4">
               <li className="flex gap-4 text-sm">
-                <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
-                <span className="text-white">2703, Damac Park Tower DIFC, Dubai, UAE</span>
+                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <span className="text-white font-semibold">Dubai</span>
+                  <span className="text-white">2703, Damac Park Tower DIFC, UAE</span>
+                </div>
               </li>
               <li className="flex gap-4 text-sm">
-                <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
-                <span className="text-white">No. 44, Varveset Place, Wellawatte, Colombo 06, Sri Lanka</span>
+                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <span className="text-white font-semibold">Sri Lanka</span>
+                  <span className="text-white">No. 44, Varveset Place, Wellawatte, Colombo 06</span>
+                </div>
               </li>
               <li className="flex gap-4 text-sm">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />

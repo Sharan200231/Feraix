@@ -3,7 +3,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { fadeInUp, staggerContainer, fadeIn } from "@/constants/animations";
+import { fadeInUp, staggerContainer } from "@/constants/animations";
 import { Cloud, Infinity, Zap, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 

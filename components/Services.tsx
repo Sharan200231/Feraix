@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { fadeInUp, staggerContainer } from "@/constants/animations";
-import { Play, Sparkles, Globe, Cpu, Lightbulb, Cloud, ArrowRight } from "lucide-react";
+import { Sparkles, Globe, Cpu, Lightbulb, Cloud } from "lucide-react";
 import Image from "next/image";
 
 const services = [

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeInUp, staggerContainer } from "@/constants/animations";
 
 export default function CTASection() {
   return (

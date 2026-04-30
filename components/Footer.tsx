@@ -27,13 +27,13 @@ export default function Footer() {
           whileInView="animate"
           viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-10 sm:mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 sm:gap-12 mb-10 sm:mb-16"
         >
           {/* Company Info */}
           <motion.div variants={fadeInUp} className="space-y-6">
             <Link href="/" className="flex items-center">
               <Image 
-                src="/TransLogo.png" 
+                src="/remBG.png" 
                 alt="Feraix Logo" 
                 width={150} 
                 height={50} 
@@ -114,34 +114,46 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Contact */}
+          {/* Dubai Office */}
           <motion.div variants={fadeInUp}>
-            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-sm">Contact</h4>
+            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-sm flex items-center gap-3">
+              <Image src="/ae.png" alt="UAE Flag" width={32} height={20} className=" shadow-md" />
+              Dubai
+            </h4>
             <ul className="space-y-4">
-              <li className="flex gap-4 text-sm">
+              <li className="flex gap-3 text-sm">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <div className="flex flex-col gap-1">
-                  <span className="text-white font-semibold">Dubai</span>
-                  <span className="text-white">2703, Damac Park Tower DIFC, UAE</span>
-                </div>
+                <span className="text-white leading-relaxed">2703, Damac Park Tower DIFC, UAE</span>
               </li>
-              <li className="flex gap-4 text-sm">
-                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <div className="flex flex-col gap-1">
-                  <span className="text-white font-semibold">Sri Lanka</span>
-                  <span className="text-white">No. 44, Varveset Place, Wellawatte, Colombo 06</span>
-                </div>
-              </li>
-              <li className="flex gap-4 text-sm">
-                <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <span className="text-white">contact@feraix.tech</span>
-              </li>
-              <li className="flex gap-4 text-sm">
+              <li className="flex gap-3 text-sm">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <div className="flex flex-col gap-1.5">
-                  <span className="text-white">+971 55 212 4675 (Dubai)</span>
-                  <span className="text-white">+94 77 740 0036 (Sri Lanka)</span>
-                </div>
+                <span className="text-white">+971 55 212 4675</span>
+              </li>
+              <li className="flex gap-3 text-sm">
+                <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <span className="text-white">dubai@feraix.tech</span>
+              </li>
+            </ul>
+          </motion.div>
+
+          {/* Sri Lanka Office */}
+          <motion.div variants={fadeInUp}>
+            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-sm flex items-center gap-3">
+              <Image src="/lk.png" alt="Sri Lanka Flag" width={32} height={20} className=" shadow-md" />
+              Sri Lanka
+            </h4>
+            <ul className="space-y-4">
+              <li className="flex gap-3 text-sm">
+                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <span className="text-white leading-relaxed">No. 44, Varveset Place, Wellawatte, Colombo 06</span>
+              </li>
+              <li className="flex gap-3 text-sm">
+                <Phone className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <span className="text-white">+94 77 740 0036</span>
+              </li>
+              <li className="flex gap-3 text-sm">
+                <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <span className="text-white">contact@feraix.tech</span>
               </li>
             </ul>
           </motion.div>

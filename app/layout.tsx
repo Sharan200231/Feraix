@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 };
 
 import GalaxyBackground from "@/components/three/GalaxyBackground";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function RootLayout({
   children,
@@ -30,6 +31,7 @@ export default function RootLayout({
           <GalaxyBackground />
         </div>
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );

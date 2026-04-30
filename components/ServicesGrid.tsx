@@ -103,6 +103,30 @@ export default function ServicesGrid() {
                           <Plus className="w-4 h-4" />
                           View Project
                         </Link>
+                      ) : service.title === "Software Development" ? (
+                        <Link
+                          href="/services/software-development"
+                          className="inline-flex items-center gap-2 text-primary text-xs font-bold tracking-widest uppercase hover:gap-4 transition-all"
+                        >
+                          <Plus className="w-4 h-4" />
+                          click
+                        </Link>
+                      ) : service.title === "IT Consulting" ? (
+                        <Link
+                          href="/services/it-consulting"
+                          className="inline-flex items-center gap-2 text-primary text-xs font-bold tracking-widest uppercase hover:gap-4 transition-all"
+                        >
+                          <Plus className="w-4 h-4" />
+                          click
+                        </Link>
+                      ) : service.title === "Cloud Solutions" ? (
+                        <Link
+                          href="/services/cloud-solutions"
+                          className="inline-flex items-center gap-2 text-primary text-xs font-bold tracking-widest uppercase hover:gap-4 transition-all"
+                        >
+                          <Plus className="w-4 h-4" />
+                          click
+                        </Link>
                       ) : (
                         <Link
                           href="#"

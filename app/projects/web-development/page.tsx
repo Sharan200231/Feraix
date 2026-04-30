@@ -39,7 +39,7 @@ const globalTechnologies = [
 
 export default function WebDevelopmentProjects() {
   return (
-    <main className="min-h-screen bg-[#020617] selection:bg-primary selection:text-black">
+    <main className="min-h-screen bg-transparent selection:bg-primary selection:text-black">
       <Navbar />
       
       {/* Hero Section */}

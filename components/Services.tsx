@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/constants/animations";
-import { Play, Sparkles, Code, Cpu, Lightbulb, Cloud, ArrowRight } from "lucide-react";
+import { Play, Sparkles, Globe, Cpu, Lightbulb, Cloud, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const services = [
@@ -12,7 +12,7 @@ const services = [
     title: "Web Development",
     subtitle: "MODERN & SCALABLE",
     description: "We build high-performance, responsive websites and web applications tailored to your business needs. Our team uses the latest technologies like Next.js, React, and Node.js to ensure speed, security, and scalability.",
-    icon: <Code className="w-12 h-12" />,
+    icon: <Globe className="w-12 h-12" />,
     color: "from-blue-500/20 to-cyan-500/20",
     accent: "text-blue-400",
     image: "/Web-development.png" // Using existing assets for placeholder

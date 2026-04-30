@@ -23,7 +23,7 @@ export default function CTASection() {
         ></div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-[#020617]"></div>
       </motion.div>
-
+{/* 
       <motion.div 
         initial="initial"
         whileInView="animate"
@@ -46,7 +46,8 @@ export default function CTASection() {
         >
           Discuss Your Project
         </motion.button>
-      </motion.div>
+      </motion.div> */}
+      
 
       {/* Decorative Blur */}
       <motion.div 
